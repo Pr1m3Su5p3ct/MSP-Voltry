@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
+
+// Import page content from CMS
+import contactData from '../content/pages/contact.json';
+
+const { hero, contactInfo, faq } = contactData;
 ---
 
 <BaseLayout
@@ -16,10 +21,10 @@ import Card from '../components/Card.astro';
     <section class="hero">
       <div class="container">
         <h1 class="hero-title">
-          Request a <span class="gradient-text">Free Pilot</span>
+          {hero.title} <span class="gradient-text">{hero.highlightedText}</span>
         </h1>
         <p class="hero-subtitle">
-          Start monitoring in less than 5 minutes
+          {hero.subtitle}
         </p>
       </div>
     </section>
@@ -134,7 +139,7 @@ import Card from '../components/Card.astro';
                 </svg>
               </div>
               <h3 class="contact-info-title">Email</h3>
-              <a href="mailto:sales@voltry.com" class="contact-info-link">sales@voltry.com</a>
+              <a href={`mailto:${contactInfo.salesEmail}`} class="contact-info-link">{contactInfo.salesEmail}</a>
               <p class="contact-info-description">For sales & demos</p>
             </Card>
 
@@ -146,7 +151,7 @@ import Card from '../components/Card.astro';
                 </svg>
               </div>
               <h3 class="contact-info-title">Support</h3>
-              <a href="mailto:support@voltry.com" class="contact-info-link">support@voltry.com</a>
+              <a href={`mailto:${contactInfo.supportEmail}`} class="contact-info-link">{contactInfo.supportEmail}</a>
               <p class="contact-info-description">For technical questions</p>
             </Card>
 
@@ -159,8 +164,8 @@ import Card from '../components/Card.astro';
                 </svg>
               </div>
               <h3 class="contact-info-title">Location</h3>
-              <p class="contact-info-text">San Francisco, CA</p>
-              <p class="contact-info-description">Serving globally</p>
+              <p class="contact-info-text">{contactInfo.location}</p>
+              <p class="contact-info-description">{contactInfo.servingArea}</p>
             </Card>
 
             <!-- Hours -->
@@ -172,8 +177,8 @@ import Card from '../components/Card.astro';
                 </svg>
               </div>
               <h3 class="contact-info-title">Hours</h3>
-              <p class="contact-info-text">Mon-Fri, 9AM-6PM PST</p>
-              <p class="contact-info-description">24/7 emergency support for customers</p>
+              <p class="contact-info-text">{contactInfo.hours}</p>
+              <p class="contact-info-description">{contactInfo.emergencyNote}</p>
             </Card>
           </div>
         </div>
@@ -184,82 +189,24 @@ import Card from '../components/Card.astro';
     <section class="faq-section">
       <div class="container">
         <div class="section-header">
-          <h2>Frequently Asked Questions</h2>
-          <p>Everything you need to know about getting started</p>
+          <h2>{faq.title}</h2>
+          <p>{faq.subtitle}</p>
         </div>
 
         <div class="faq-list">
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">How quickly can I get started?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Most customers are up and running in less than 5 minutes. Product 0 is cloud-based and requires no hardware installation - just connect your monitoring equipment and you're ready to go.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">Is Product 0 really free forever?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Yes! Product 0 includes real-time monitoring, compliance reports, and alerts at no cost. You can upgrade to Product 1 anytime to add AI forecasting capabilities.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">What equipment do I need?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Voltry works with standard power quality meters and monitoring equipment. We support all major brands and can help you choose the right equipment if you're just getting started.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">How accurate are the AI predictions?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Product 1's AI forecasting achieves 95% accuracy with a Mean Absolute Percentage Error (MAPE) of just 4.7%. Our federated learning approach continuously improves predictions across our network.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">Is my data secure?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Absolutely. All data is encrypted in transit and at rest. Product 1's federated learning ensures your raw data never leaves your facility. We're SOC 2 Type II certified and GDPR compliant.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span class="faq-question-text">Can I try Product 1 before committing?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="faq-answer">
-              Yes! We offer a 30-day free trial of Product 1 with no credit card required. Experience the full power of AI forecasting risk-free.
-            </div>
-          </details>
+          {faq.questions.map((item) => (
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span class="faq-question-text">{item.question}</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                {item.answer}
+              </div>
+            </details>
+          ))}
         </div>
       </div>
     </section>
