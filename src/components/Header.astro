@@ -5,10 +5,13 @@ const currentPath = Astro.url.pathname;
 <header class="header">
   <nav class="nav container">
     <a href="/" class="logo">
-      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-      </svg>
-      <span class="logo-text">VOLTRY</span>
+      <img
+        src="https://res.cloudinary.com/di54rmpjf/image/upload/v1760107381/voltry-logo-full_yat2es.png"
+        alt="Voltry"
+        class="logo-image"
+        width="140"
+        height="32"
+      />
     </a>
 
     <ul class="nav-links">
@@ -80,42 +83,20 @@ const currentPath = Astro.url.pathname;
   .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-xl);
-    font-weight: var(--weight-bold);
-    color: var(--text-primary);
     text-decoration: none;
-    transition: transform var(--transition-fast);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
   .logo:hover {
     transform: scale(1.05);
+    opacity: 0.9;
   }
 
-  .logo-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--color-primary-600);
-    filter: drop-shadow(0 2px 4px rgba(147, 51, 234, 0.3));
+  .logo-image {
+    height: 32px;
+    width: auto;
+    display: block;
     transition: all var(--transition-base);
-  }
-
-  .logo:hover .logo-icon {
-    filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.5));
-    transform: rotate(-10deg);
-  }
-
-  [data-theme="dark"] .logo-icon {
-    color: var(--color-primary-400);
-    filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.5));
-  }
-
-  [data-theme="dark"] .logo:hover .logo-icon {
-    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.7));
-  }
-
-  .logo-text {
-    letter-spacing: 0.05em;
   }
 
   .nav-links {

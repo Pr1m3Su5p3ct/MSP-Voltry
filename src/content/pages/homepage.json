@@ -8,7 +8,20 @@
     "trust1": "No credit card",
     "trust2": "5-min setup",
     "trust3": "Free forever",
-    "secondaryCTA": "See How It Works"
+    "heroSlider": [
+      {
+        "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
+        "alt": "Modern data center with advanced monitoring systems"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80",
+        "alt": "Server room with blue LED lighting"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
+        "alt": "Real-time power quality monitoring dashboard"
+      }
+    ]
   },
   "pspCards": [
     {

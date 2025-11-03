@@ -32,7 +32,12 @@ collections:
               - { label: "Trust Badge 1", name: "trust1", widget: "string" }
               - { label: "Trust Badge 2", name: "trust2", widget: "string" }
               - { label: "Trust Badge 3", name: "trust3", widget: "string" }
-              - { label: "Hero Image URL", name: "heroImage", widget: "string" }
+              - label: "Hero Slider Images"
+                name: "heroSlider"
+                widget: "list"
+                fields:
+                  - { label: "Image URL", name: "url", widget: "string" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
 
           - label: "Problem-Solution-Proof Cards"
             name: "pspCards"
