@@ -8,10 +8,5 @@ export default defineConfig({
   site: 'https://voltry.com',
   build: {
     assets: '_assets'
-  },
-  vite: {
-    css: {
-      transformer: 'lightningcss'
-    }
   }
 });
