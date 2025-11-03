@@ -62,9 +62,11 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
     <section class="psp-section">
       <div class="container">
         <div class="psp-grid">
-          {pspCards.map((card) => (
-            <Card variant="elevated" class="psp-card">
+          {pspCards.map((card, index) => (
+            <Card variant="elevated" class="psp-card" data-index={index}>
+              <div class="psp-step-number">0{index + 1}</div>
               <div class={`psp-icon ${card.icon}`}>
+                <div class="psp-icon-bg"></div>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   {card.icon === 'problem' && (
                     <>
@@ -81,6 +83,7 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
               </div>
               <h3 class="psp-title">{card.title}</h3>
               <p class="psp-description" set:html={card.description} />
+              {index < 2 && <div class="psp-arrow">→</div>}
             </Card>
           ))}
         </div>
@@ -302,7 +305,8 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
   .psp-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-8);
+    position: relative;
   }
 
   .psp-card {
@@ -311,42 +315,189 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
     flex-direction: column;
     align-items: center;
     gap: var(--space-4);
+    position: relative;
+    overflow: visible;
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.6s ease-out backwards;
   }
 
+  /* Staggered entrance animations */
+  .psp-card[data-index="0"] {
+    animation-delay: 0.1s;
+  }
+
+  .psp-card[data-index="1"] {
+    animation-delay: 0.2s;
+  }
+
+  .psp-card[data-index="2"] {
+    animation-delay: 0.3s;
+  }
+
+  .psp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--elevation-4), var(--glow-soft);
+  }
+
+  /* Step numbers */
+  .psp-step-number {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-subtle);
+    transition: all var(--transition-fast);
+  }
+
+  .psp-card:hover .psp-step-number {
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-500);
+    background: var(--color-primary-50);
+    transform: scale(1.1);
+  }
+
+  [data-theme="dark"] .psp-card:hover .psp-step-number {
+    color: var(--color-primary-400);
+    background: var(--color-primary-950);
+  }
+
+  /* Icon container */
   .psp-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: var(--radius-xl);
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-2xl);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--space-2);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  /* Animated background layer */
+  .psp-icon-bg {
+    position: absolute;
+    inset: -50%;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    animation: rotate 8s linear infinite;
+  }
+
+  .psp-card:hover .psp-icon-bg {
+    animation-duration: 4s;
   }
 
   .psp-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-base);
   }
 
+  .psp-card:hover .psp-icon svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  /* Problem icon - Yellow/Amber theme */
   .psp-icon.problem {
     background: linear-gradient(135deg, #fef3c7, #fde68a);
     color: #92400e;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
   }
 
+  .psp-card:hover .psp-icon.problem {
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Solution icon - Purple theme */
   .psp-icon.solution {
     background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
     color: var(--color-primary-700);
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
   }
 
+  .psp-card:hover .psp-icon.solution {
+    box-shadow: 0 8px 24px rgba(147, 51, 234, 0.4), var(--glow-primary);
+    animation: float 3s ease-in-out infinite 0.5s;
+  }
+
+  [data-theme="dark"] .psp-icon.solution {
+    background: linear-gradient(135deg, var(--color-primary-900), var(--color-primary-800));
+    color: var(--color-primary-300);
+  }
+
+  /* Proof icon - Lime/Green theme */
   .psp-icon.proof {
     background: linear-gradient(135deg, var(--color-accent-100), var(--color-accent-200));
     color: var(--color-accent-800);
+    box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3);
+  }
+
+  .psp-card:hover .psp-icon.proof {
+    box-shadow: 0 8px 24px rgba(132, 204, 22, 0.4), var(--glow-accent);
+    animation: float 3s ease-in-out infinite 1s;
+  }
+
+  [data-theme="dark"] .psp-icon.proof {
+    background: linear-gradient(135deg, var(--color-accent-900), var(--color-accent-800));
+    color: var(--color-accent-300);
+  }
+
+  /* Flow arrows between cards */
+  .psp-arrow {
+    position: absolute;
+    right: calc(-1 * var(--space-8) - 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--color-primary-400);
+    opacity: 0.3;
+    animation: pulseArrow 2s ease-in-out infinite;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  @keyframes pulseArrow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateY(-50%) translateX(0);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateY(-50%) translateX(5px);
+    }
   }
 
   .psp-title {
     font-size: var(--text-xl);
     font-weight: var(--weight-semibold);
     color: var(--text-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .psp-card:hover .psp-title {
+    color: var(--color-primary-600);
+  }
+
+  [data-theme="dark"] .psp-card:hover .psp-title {
+    color: var(--color-primary-400);
   }
 
   .psp-description {
