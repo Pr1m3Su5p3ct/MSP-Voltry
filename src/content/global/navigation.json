@@ -1,0 +1,16 @@
+{
+  "mainMenu": [
+    {
+      "label": "Product 0",
+      "url": "/product-0"
+    },
+    {
+      "label": "Product 1",
+      "url": "/product-1"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact"
+    }
+  ]
+}

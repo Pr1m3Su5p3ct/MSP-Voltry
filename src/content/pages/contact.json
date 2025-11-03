@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "Request a",
+    "highlightedText": "Free Pilot",
+    "subtitle": "Start monitoring in less than 5 minutes"
+  },
+  "contactInfo": {
+    "salesEmail": "sales@voltry.com",
+    "supportEmail": "support@voltry.com",
+    "location": "San Francisco, CA",
+    "servingArea": "Serving globally",
+    "hours": "Mon-Fri, 9AM-6PM PST",
+    "emergencyNote": "24/7 emergency support for customers"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about getting started",
+    "questions": [
+      {
+        "question": "How quickly can I get started?",
+        "answer": "Most customers are up and running in less than 5 minutes. Product 0 is cloud-based and requires no hardware installation - just connect your monitoring equipment and you're ready to go."
+      },
+      {
+        "question": "Is Product 0 really free forever?",
+        "answer": "Yes! Product 0 includes real-time monitoring, compliance reports, and alerts at no cost. You can upgrade to Product 1 anytime to add AI forecasting capabilities."
+      },
+      {
+        "question": "What equipment do I need?",
+        "answer": "Voltry works with standard power quality meters and monitoring equipment. We support all major brands and can help you choose the right equipment if you're just getting started."
+      },
+      {
+        "question": "How accurate are the AI predictions?",
+        "answer": "Product 1's AI forecasting achieves 95% accuracy with a Mean Absolute Percentage Error (MAPE) of just 4.7%. Our federated learning approach continuously improves predictions across our network."
+      },
+      {
+        "question": "Is my data secure?",
+        "answer": "Absolutely. All data is encrypted in transit and at rest. Product 1's federated learning ensures your raw data never leaves your facility. We're SOC 2 Type II certified and GDPR compliant."
+      },
+      {
+        "question": "Can I try Product 1 before committing?",
+        "answer": "Yes! We offer a 30-day free trial of Product 1 with no credit card required. Experience the full power of AI forecasting risk-free."
+      }
+    ]
+  }
+}
