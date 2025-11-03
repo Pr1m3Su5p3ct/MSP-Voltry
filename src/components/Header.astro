@@ -9,8 +9,8 @@ const currentPath = Astro.url.pathname;
         src="https://res.cloudinary.com/di54rmpjf/image/upload/v1760107381/voltry-logo-full_yat2es.png"
         alt="Voltry"
         class="logo-image"
-        width="140"
-        height="32"
+        width="220"
+        height="56"
       />
     </a>
 
@@ -76,7 +76,7 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
+    height: 5rem;
     gap: var(--space-8);
   }
 
@@ -84,6 +84,9 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
     text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: none;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
@@ -93,9 +96,12 @@ const currentPath = Astro.url.pathname;
   }
 
   .logo-image {
-    height: 32px;
+    height: 56px;
     width: auto;
     display: block;
+    padding: 0;
+    margin: 0;
+    border: none;
     transition: all var(--transition-base);
   }
 
@@ -197,7 +203,11 @@ const currentPath = Astro.url.pathname;
 
   @media (max-width: 768px) {
     .nav {
-      height: 3.5rem;
+      height: 4rem;
+    }
+
+    .logo-image {
+      height: 44px;
     }
 
     .nav-links {
