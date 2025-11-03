@@ -27,6 +27,9 @@ const { title, description = "AI-powered power quality monitoring and forecastin
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
 
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <title>{title}</title>
 </head>
 <body>
@@ -51,6 +54,19 @@ const { title, description = "AI-powered power quality monitoring and forecastin
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     });
+  </script>
+
+  <!-- Netlify Identity Redirect Script -->
+  <script is:inline>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
