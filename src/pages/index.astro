@@ -4,6 +4,18 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+// Import page content from CMS
+import homepageData from '../content/pages/homepage.json';
+
+// Get testimonials from CMS
+const testimonials = await getCollection('testimonials');
+const featuredTestimonial = testimonials
+  .filter(t => t.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)[0];
+
+const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
 ---
 
 <BaseLayout title="Voltry - Predict Power Quality Issues Before They Happen">
@@ -15,29 +27,29 @@ import Card from '../components/Card.astro';
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">
-            Predict Power Quality Issues<br />
-            <span class="gradient-text">Before They Happen</span>
+            {hero.title}<br />
+            <span class="gradient-text">{hero.highlightedText}</span>
           </h1>
           <p class="hero-subtitle">
-            AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities
+            {hero.subtitle}
           </p>
           <div class="hero-cta">
-            <Button size="lg" href="/contact">Start Free Pilot</Button>
-            <Button variant="outline" size="lg" href="#how-it-works">See How It Works</Button>
+            <Button size="lg" href="/contact">{hero.primaryCTA}</Button>
+            <Button variant="outline" size="lg" href="#how-it-works">{hero.secondaryCTA}</Button>
           </div>
           <div class="hero-trust">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>No credit card</span>
+            <span>{hero.trust1}</span>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>5-min setup</span>
+            <span>{hero.trust2}</span>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>Free forever</span>
+            <span>{hero.trust3}</span>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-image-placeholder">
             <img
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80"
+              src={hero.heroImage}
               alt="Modern data center with advanced monitoring systems"
               loading="eager"
             />
@@ -50,43 +62,27 @@ import Card from '../components/Card.astro';
     <section class="psp-section">
       <div class="container">
         <div class="psp-grid">
-          <Card variant="elevated" class="psp-card">
-            <div class="psp-icon problem">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <h3 class="psp-title">The Problem</h3>
-            <p class="psp-description">
-              Power quality issues cost data centers <strong>$500K+/year</strong> in equipment failures, downtime, and IEEE 519 penalties
-            </p>
-          </Card>
-
-          <Card variant="elevated" class="psp-card">
-            <div class="psp-icon solution">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-              </svg>
-            </div>
-            <h3 class="psp-title">The Solution</h3>
-            <p class="psp-description">
-              Voltry combines <strong>real-time monitoring</strong> with <strong>AI forecasting</strong> to detect issues 24-72 hours before they occur
-            </p>
-          </Card>
-
-          <Card variant="elevated" class="psp-card">
-            <div class="psp-icon proof">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-            </div>
-            <h3 class="psp-title">The Proof</h3>
-            <p class="psp-description">
-              <strong>50+ data centers</strong> trust Voltry<br />
-              <strong>$50M+</strong> in losses prevented<br />
-              <strong>99.9%</strong> uptime achieved
-            </p>
-          </Card>
+          {pspCards.map((card) => (
+            <Card variant="elevated" class="psp-card">
+              <div class={`psp-icon ${card.icon}`}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  {card.icon === 'problem' && (
+                    <>
+                      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </>
+                  )}
+                  {card.icon === 'solution' && (
+                    <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+                  )}
+                  {card.icon === 'proof' && (
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  )}
+                </svg>
+              </div>
+              <h3 class="psp-title">{card.title}</h3>
+              <p class="psp-description" set:html={card.description} />
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -95,58 +91,18 @@ import Card from '../components/Card.astro';
     <section class="features-section" id="how-it-works">
       <div class="container">
         <div class="section-header">
-          <h2>Comprehensive Power Quality Management</h2>
-          <p>Everything you need to monitor, predict, and prevent power quality issues</p>
+          <h2>{features.title}</h2>
+          <p>{features.subtitle}</p>
         </div>
 
         <div class="features-grid">
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">Real-Time Monitoring</h3>
-            <p class="feature-description">
-              Track THD, voltage, unbalance, power factor, and frequency with sub-millisecond precision
-            </p>
-          </Card>
-
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">🔮</div>
-            <h3 class="feature-title">AI Forecasting</h3>
-            <p class="feature-description">
-              Predict failures 24-72 hours ahead with 95% accuracy (MAPE: 4.7%)
-            </p>
-          </Card>
-
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3 class="feature-title">IEEE 519 Compliance</h3>
-            <p class="feature-description">
-              Automated compliance reports, zero manual work
-            </p>
-          </Card>
-
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">🔐</div>
-            <h3 class="feature-title">Privacy-First</h3>
-            <p class="feature-description">
-              Federated learning without sharing raw data
-            </p>
-          </Card>
-
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3 class="feature-title">Fast ROI</h3>
-            <p class="feature-description">
-              Typical payback: 3-6 months through avoided downtime
-            </p>
-          </Card>
-
-          <Card variant="interactive" class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3 class="feature-title">Easy Setup</h3>
-            <p class="feature-description">
-              Cloud-based, no hardware, 5-minute installation
-            </p>
-          </Card>
+          {features.list.map((feature) => (
+            <Card variant="interactive" class="feature-card">
+              <div class="feature-icon">{feature.icon}</div>
+              <h3 class="feature-title">{feature.title}</h3>
+              <p class="feature-description">{feature.description}</p>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -155,125 +111,84 @@ import Card from '../components/Card.astro';
     <section class="pricing-section" id="pricing">
       <div class="container">
         <div class="section-header">
-          <h2>Simple, Transparent Pricing</h2>
-          <p>Start free, upgrade when you need forecasting</p>
+          <h2>{pricing.title}</h2>
+          <p>{pricing.subtitle}</p>
         </div>
 
         <div class="pricing-grid">
-          <!-- Product 0 -->
-          <Card variant="elevated" class="pricing-card">
-            <div class="pricing-badge free">FREE FOREVER</div>
-            <h3 class="pricing-name">Product 0</h3>
-            <div class="pricing-price">
-              <span class="price-amount">$0</span>
-              <span class="price-period">/month</span>
-            </div>
-            <p class="pricing-description">
-              Real-time monitoring for power quality compliance
-            </p>
-            <ul class="pricing-features">
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Real-time THD monitoring</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Voltage quality tracking</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>IEEE 519 compliance reports</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Email alerts</li>
-            </ul>
-            <Button variant="outline" size="lg" href="/product-0" class="pricing-cta">
-              Learn More
-            </Button>
-          </Card>
-
-          <!-- Product 1 -->
-          <Card variant="elevated" class="pricing-card featured">
-            <div class="pricing-badge primary">MOST POPULAR</div>
-            <h3 class="pricing-name">Product 1</h3>
-            <div class="pricing-price">
-              <span class="price-amount">$499</span>
-              <span class="price-period">/month</span>
-            </div>
-            <p class="pricing-description">
-              Everything in Product 0, plus AI forecasting
-            </p>
-            <ul class="pricing-features">
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Everything in Product 0</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>24-72h forecasts</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Failure prediction</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Federated learning</li>
-            </ul>
-            <Button size="lg" href="/product-1" class="pricing-cta">
-              Get Started
-            </Button>
-          </Card>
-
-          <!-- Enterprise -->
-          <Card variant="elevated" class="pricing-card">
-            <div class="pricing-badge">ENTERPRISE</div>
-            <h3 class="pricing-name">Custom</h3>
-            <div class="pricing-price">
-              <span class="price-amount">Custom</span>
-            </div>
-            <p class="pricing-description">
-              Tailored solutions for large deployments
-            </p>
-            <ul class="pricing-features">
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Everything in Product 1</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Dedicated support</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>On-premise deployment</li>
-              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Custom SLA</li>
-            </ul>
-            <Button variant="outline" size="lg" href="/contact" class="pricing-cta">
-              Contact Sales
-            </Button>
-          </Card>
+          {pricing.tiers.map((tier) => (
+            <Card variant="elevated" class={`pricing-card ${tier.featured ? 'featured' : ''}`}>
+              <div class={`pricing-badge ${tier.badgeType}`}>{tier.badge}</div>
+              <h3 class="pricing-name">{tier.name}</h3>
+              <div class="pricing-price">
+                <span class="price-amount">{tier.price}</span>
+                {tier.period && <span class="price-period">{tier.period}</span>}
+              </div>
+              <p class="pricing-description">{tier.description}</p>
+              <ul class="pricing-features">
+                {tier.features.map((feature) => (
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                variant={tier.buttonVariant as any}
+                size="lg"
+                href={tier.buttonLink}
+                class="pricing-cta"
+              >
+                {tier.buttonText}
+              </Button>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials-section">
-      <div class="container">
-        <div class="testimonial-card">
-          <Card variant="elevated" padding="lg">
-            <div class="testimonial-content">
-              <div class="quote-icon">"</div>
-              <blockquote class="testimonial-quote">
-                Voltry's AI predicted a critical failure 48 hours before it occurred, saving us $250K in downtime
-              </blockquote>
-              <div class="testimonial-author">
-                <div class="author-info">
-                  <div class="author-name">Sarah Chen</div>
-                  <div class="author-title">VP Operations, GlobalData Centers</div>
+    {featuredTestimonial && (
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="testimonial-card">
+            <Card variant="elevated" padding="lg">
+              <div class="testimonial-content">
+                <div class="quote-icon">"</div>
+                <blockquote class="testimonial-quote">
+                  {featuredTestimonial.data.quote}
+                </blockquote>
+                <div class="testimonial-author">
+                  <div class="author-info">
+                    <div class="author-name">{featuredTestimonial.data.author}</div>
+                    <div class="author-title">{featuredTestimonial.data.title}, {featuredTestimonial.data.company}</div>
+                  </div>
                 </div>
+                {featuredTestimonial.data.metric && (
+                  <div class="testimonial-metric">
+                    <span class="metric-value">{featuredTestimonial.data.metric}</span>
+                    <span class="metric-label">{featuredTestimonial.data.metricLabel}</span>
+                  </div>
+                )}
               </div>
-              <div class="testimonial-metric">
-                <span class="metric-value">14×</span>
-                <span class="metric-label">ROI in 6 months</span>
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     <!-- Social Proof Stats -->
     <section class="stats-section">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-value">50+</div>
-            <div class="stat-label">Data Centers</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">$50M+</div>
-            <div class="stat-label">Losses Prevented</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">99.9%</div>
-            <div class="stat-label">Uptime SLA</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">95%</div>
-            <div class="stat-label">Forecast Accuracy</div>
-          </div>
+          {stats.map((stat) => (
+            <div class="stat">
+              <div class="stat-value">{stat.value}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -282,11 +197,9 @@ import Card from '../components/Card.astro';
     <section class="final-cta">
       <div class="container">
         <Card variant="elevated" padding="lg" class="cta-card">
-          <h2 class="cta-title">Ready to Protect Your Facility?</h2>
-          <p class="cta-description">
-            Join 50+ data centers using Voltry for predictive power quality management
-          </p>
-          <Button size="lg" href="/contact">Start Your Free Pilot Today</Button>
+          <h2 class="cta-title">{finalCTA.title}</h2>
+          <p class="cta-description">{finalCTA.description}</p>
+          <Button size="lg" href="/contact">{finalCTA.buttonText}</Button>
         </Card>
       </div>
     </section>
