@@ -1,0 +1,667 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+---
+
+<BaseLayout
+  title="Product 0 - Free Power Quality Monitoring | Voltry"
+  description="Real-time power quality monitoring, completely free forever. Track THD, voltage, compliance, and more."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="free-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 100 4h4a2 2 0 110 4H8"/>
+            <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+          </svg>
+          <span>FREE FOREVER</span>
+        </div>
+
+        <h1 class="hero-title">
+          Product 0:<br />
+          Real-Time Power Quality <span class="gradient-text">Monitoring</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Monitor THD, voltage, and compliance in real-time. Completely free, forever.
+        </p>
+
+        <div class="hero-cta">
+          <Button size="lg" href="/contact">Start Free Monitoring</Button>
+          <Button variant="outline" size="lg" href="#features">Explore Features</Button>
+        </div>
+
+        <div class="hero-trust">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>No credit card</span>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>5-min setup</span>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Cancel anytime</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything You Need for Power Quality Compliance</h2>
+          <p>Monitor all critical parameters in real-time</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- THD Monitoring -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">⚡</div>
+              <h3 class="feature-title">THD Monitoring</h3>
+            </div>
+            <p class="feature-description">
+              Track harmonics up to 50th order, instant alerts on IEEE 519 violations
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Real-time Total Harmonic Distortion tracking</li>
+                  <li>Individual harmonic analysis up to 50th order</li>
+                  <li>Automatic IEEE 519 compliance checking</li>
+                  <li>Instant notifications when thresholds exceeded</li>
+                  <li>Historical trend analysis and reporting</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+
+          <!-- IEEE 519 Compliance -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">📊</div>
+              <h3 class="feature-title">IEEE 519 Compliance</h3>
+            </div>
+            <p class="feature-description">
+              Automated daily/weekly/monthly reports, never miss deadlines
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Automated compliance report generation</li>
+                  <li>Daily, weekly, and monthly schedules</li>
+                  <li>PDF export for regulatory submissions</li>
+                  <li>Violation tracking and documentation</li>
+                  <li>Historical compliance dashboards</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+
+          <!-- Voltage Quality -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">🔋</div>
+              <h3 class="feature-title">Voltage Quality</h3>
+            </div>
+            <p class="feature-description">
+              Track sags, swells, interruptions with ITIC/CBEMA analysis
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Voltage sag and swell detection</li>
+                  <li>Interruption event logging</li>
+                  <li>ITIC/CBEMA curve compliance</li>
+                  <li>Overvoltage and undervoltage alerts</li>
+                  <li>RMS voltage tracking per phase</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+
+          <!-- Unbalance Monitoring -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">⚖️</div>
+              <h3 class="feature-title">Unbalance Monitoring</h3>
+            </div>
+            <p class="feature-description">
+              Monitor 3-phase unbalance per NEMA MG-1, prevent motor failures
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Real-time voltage and current unbalance</li>
+                  <li>NEMA MG-1 compliance checking</li>
+                  <li>Motor derating calculations</li>
+                  <li>Phase-by-phase comparison</li>
+                  <li>Predictive failure warnings</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+
+          <!-- Power Factor -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">⚙️</div>
+              <h3 class="feature-title">Power Factor</h3>
+            </div>
+            <p class="feature-description">
+              Track displacement & true PF, reduce utility penalties
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Displacement power factor tracking</li>
+                  <li>True power factor measurement</li>
+                  <li>Reactive power monitoring</li>
+                  <li>Utility penalty cost calculations</li>
+                  <li>Capacitor bank optimization suggestions</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+
+          <!-- Frequency -->
+          <Card variant="elevated" class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon">📡</div>
+              <h3 class="feature-title">Frequency Monitoring</h3>
+            </div>
+            <p class="feature-description">
+              Sub-second measurements for NERC CIP compliance
+            </p>
+            <details class="feature-details">
+              <summary>Learn more</summary>
+              <div class="details-content">
+                <ul>
+                  <li>High-precision frequency measurement</li>
+                  <li>Rate of change of frequency (ROCOF)</li>
+                  <li>NERC CIP compliance reporting</li>
+                  <li>Grid stability indicators</li>
+                  <li>Frequency deviation alerts</li>
+                </ul>
+              </div>
+            </details>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section">
+      <div class="container">
+        <Card variant="elevated" padding="lg" class="roi-card">
+          <div class="roi-content">
+            <div class="roi-visual">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+                alt="ROI calculator dashboard"
+                loading="lazy"
+              />
+            </div>
+            <div class="roi-info">
+              <h2 class="roi-title">Calculate Your Savings</h2>
+              <div class="roi-stats">
+                <div class="roi-stat">
+                  <span class="roi-stat-value">$50K+</span>
+                  <span class="roi-stat-label">Average savings per year</span>
+                </div>
+                <div class="roi-stat">
+                  <span class="roi-stat-value">3-6 months</span>
+                  <span class="roi-stat-label">Typical payback period</span>
+                </div>
+              </div>
+              <p class="roi-description">
+                Product 0 helps you avoid costly downtime, equipment failures, and compliance penalties - all at zero cost.
+              </p>
+              <Button size="lg" href="/contact">Start Free Monitoring</Button>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </section>
+
+    <!-- What's Next Section -->
+    <section class="upgrade-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Need Predictive Capabilities?</h2>
+          <p>Upgrade to Product 1 for AI-powered forecasting</p>
+        </div>
+
+        <div class="upgrade-grid">
+          <Card variant="elevated" class="upgrade-card current">
+            <div class="upgrade-badge">CURRENT</div>
+            <h3 class="upgrade-title">Product 0</h3>
+            <div class="upgrade-price">Free</div>
+            <p class="upgrade-description">Real-time monitoring and compliance</p>
+            <ul class="upgrade-features">
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Real-time monitoring</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Compliance reports</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Email alerts</li>
+            </ul>
+          </Card>
+
+          <Card variant="elevated" class="upgrade-card featured">
+            <div class="upgrade-badge primary">UPGRADE</div>
+            <h3 class="upgrade-title">Product 1</h3>
+            <div class="upgrade-price">$499<span>/mo</span></div>
+            <p class="upgrade-description">Everything in P0 + AI forecasting</p>
+            <ul class="upgrade-features">
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Everything in Product 0</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>24-72h forecasts</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Failure prediction</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Federated learning</li>
+            </ul>
+            <Button size="lg" href="/product-1" class="upgrade-cta">Learn About Product 1</Button>
+          </Card>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: var(--space-24) 0 var(--space-20);
+    text-align: center;
+    background: linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      var(--bg-secondary) 100%
+    );
+  }
+
+  .hero .container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .free-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: linear-gradient(135deg, var(--color-accent-100), var(--color-accent-200));
+    color: var(--color-accent-900);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.05em;
+  }
+
+  .free-badge svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-title {
+    font-size: var(--text-6xl);
+    line-height: var(--line-tight);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .hero-trust svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-success);
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: var(--space-20) 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+  }
+
+  .feature-title {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .feature-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  .feature-details {
+    margin-top: var(--space-2);
+  }
+
+  .feature-details summary {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-primary-600);
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .feature-details summary:hover {
+    background-color: var(--bg-tertiary);
+  }
+
+  .feature-details summary::after {
+    content: ' →';
+  }
+
+  .feature-details[open] summary::after {
+    content: ' ↓';
+  }
+
+  .details-content {
+    margin-top: var(--space-3);
+    padding: var(--space-4);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+  }
+
+  .details-content ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .details-content li {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .details-content li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-500);
+  }
+
+  /* ROI Section */
+  .roi-section {
+    padding: var(--space-20) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .roi-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  .roi-visual {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--elevation-3);
+  }
+
+  .roi-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .roi-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .roi-title {
+    font-size: var(--text-3xl);
+    color: var(--text-primary);
+  }
+
+  .roi-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .roi-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .roi-stat-value {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-primary-600);
+  }
+
+  .roi-stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .roi-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  /* Upgrade Section */
+  .upgrade-section {
+    padding: var(--space-20) 0;
+  }
+
+  .upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .upgrade-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  .upgrade-card.featured {
+    border: 2px solid var(--color-primary-500);
+    transform: scale(1.05);
+  }
+
+  .upgrade-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-700);
+    width: fit-content;
+  }
+
+  .upgrade-badge.primary {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+    color: white;
+  }
+
+  .upgrade-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .upgrade-price {
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .upgrade-price span {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .upgrade-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .upgrade-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .upgrade-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .upgrade-features svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--color-success);
+    margin-top: 2px;
+  }
+
+  .upgrade-cta {
+    width: 100%;
+    margin-top: var(--space-4);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-content {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-visual {
+      order: -1;
+    }
+
+    .upgrade-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .upgrade-card.featured {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .section-header h2 {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>
