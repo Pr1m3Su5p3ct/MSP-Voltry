@@ -94,17 +94,21 @@ const additionalProps = href ? { href } : { type };
       var(--color-primary-700)
     );
     color: white;
-    box-shadow: var(--elevation-2);
+    box-shadow: var(--elevation-2), var(--glow-primary);
   }
 
   .btn-primary:hover {
-    box-shadow: var(--elevation-3);
-    transform: translateY(-2px);
+    box-shadow: var(--elevation-3), var(--glow-primary);
+    transform: translateY(-2px) scale(1.02);
     background: linear-gradient(
       135deg,
       var(--color-primary-500),
       var(--color-primary-600)
     );
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
   }
 
   /* Secondary variant */
@@ -115,17 +119,21 @@ const additionalProps = href ? { href } : { type };
       var(--color-accent-600)
     );
     color: var(--color-gray-900);
-    box-shadow: var(--elevation-2);
+    box-shadow: var(--elevation-2), var(--glow-accent);
   }
 
   .btn-secondary:hover {
-    box-shadow: var(--elevation-3);
-    transform: translateY(-2px);
+    box-shadow: var(--elevation-3), var(--glow-accent);
+    transform: translateY(-2px) scale(1.02);
     background: linear-gradient(
       135deg,
       var(--color-accent-400),
       var(--color-accent-500)
     );
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0) scale(0.98);
   }
 
   /* Outline variant */

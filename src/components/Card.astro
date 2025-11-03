@@ -43,24 +43,73 @@ const {
 
   /* Elevated variant */
   .card-elevated {
-    box-shadow: var(--elevation-2);
+    box-shadow: var(--elevation-2), var(--glow-soft);
     border: 1px solid var(--border-subtle);
   }
 
   /* Outlined variant */
   .card-outlined {
     border: 2px solid var(--border-default);
+    position: relative;
+  }
+
+  .card-outlined::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: var(--radius-lg);
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-500),
+      var(--color-accent-500)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .card-outlined:hover::before {
+    opacity: 0.5;
   }
 
   /* Interactive variant */
   .card-interactive {
     border: 1px solid var(--border-subtle);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-interactive::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      var(--color-primary-500) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s, opacity 0.6s;
+  }
+
+  .card-interactive:hover::after {
+    width: 300%;
+    height: 300%;
+    opacity: 0.06;
   }
 
   .card-interactive:hover {
-    box-shadow: var(--elevation-3);
-    transform: translateY(-4px);
+    box-shadow: var(--elevation-3), var(--glow-soft);
+    transform: translateY(-4px) scale(1.01);
     border-color: var(--color-primary-300);
   }
 
@@ -69,7 +118,7 @@ const {
   }
 
   .card-interactive:active {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1);
     box-shadow: var(--elevation-2);
   }
 
