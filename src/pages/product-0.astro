@@ -4,6 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
+
+// Import page content from CMS
+import product0Data from '../content/pages/product0.json';
+
+const { hero, features, roi } = product0Data;
 ---
 
 <BaseLayout
@@ -21,30 +26,30 @@ import Card from '../components/Card.astro';
             <circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 100 4h4a2 2 0 110 4H8"/>
             <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
           </svg>
-          <span>FREE FOREVER</span>
+          <span>{hero.badge}</span>
         </div>
 
         <h1 class="hero-title">
-          Product 0:<br />
-          Real-Time Power Quality <span class="gradient-text">Monitoring</span>
+          {hero.title}<br />
+          <span class="gradient-text">{hero.highlightedText}</span>
         </h1>
 
         <p class="hero-subtitle">
-          Monitor THD, voltage, and compliance in real-time. Completely free, forever.
+          {hero.subtitle}
         </p>
 
         <div class="hero-cta">
-          <Button size="lg" href="/contact">Start Free Monitoring</Button>
-          <Button variant="outline" size="lg" href="#features">Explore Features</Button>
+          <Button size="lg" href="/contact">{hero.primaryCTA}</Button>
+          <Button variant="outline" size="lg" href="#features">{hero.secondaryCTA}</Button>
         </div>
 
         <div class="hero-trust">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>No credit card</span>
+          <span>{hero.trust1}</span>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>5-min setup</span>
+          <span>{hero.trust2}</span>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Cancel anytime</span>
+          <span>{hero.trust3}</span>
         </div>
       </div>
     </section>
@@ -53,148 +58,32 @@ import Card from '../components/Card.astro';
     <section class="features-section" id="features">
       <div class="container">
         <div class="section-header">
-          <h2>Everything You Need for Power Quality Compliance</h2>
-          <p>Monitor all critical parameters in real-time</p>
+          <h2>{features.title}</h2>
+          <p>{features.subtitle}</p>
         </div>
 
         <div class="features-grid">
-          <!-- THD Monitoring -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">⚡</div>
-              <h3 class="feature-title">THD Monitoring</h3>
-            </div>
-            <p class="feature-description">
-              Track harmonics up to 50th order, instant alerts on IEEE 519 violations
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>Real-time Total Harmonic Distortion tracking</li>
-                  <li>Individual harmonic analysis up to 50th order</li>
-                  <li>Automatic IEEE 519 compliance checking</li>
-                  <li>Instant notifications when thresholds exceeded</li>
-                  <li>Historical trend analysis and reporting</li>
-                </ul>
+          {features.list.map((feature) => (
+            <Card variant="elevated" class="feature-card">
+              <div class="feature-header">
+                <div class="feature-icon">{feature.icon}</div>
+                <h3 class="feature-title">{feature.title}</h3>
               </div>
-            </details>
-          </Card>
-
-          <!-- IEEE 519 Compliance -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">📊</div>
-              <h3 class="feature-title">IEEE 519 Compliance</h3>
-            </div>
-            <p class="feature-description">
-              Automated daily/weekly/monthly reports, never miss deadlines
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>Automated compliance report generation</li>
-                  <li>Daily, weekly, and monthly schedules</li>
-                  <li>PDF export for regulatory submissions</li>
-                  <li>Violation tracking and documentation</li>
-                  <li>Historical compliance dashboards</li>
-                </ul>
-              </div>
-            </details>
-          </Card>
-
-          <!-- Voltage Quality -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">🔋</div>
-              <h3 class="feature-title">Voltage Quality</h3>
-            </div>
-            <p class="feature-description">
-              Track sags, swells, interruptions with ITIC/CBEMA analysis
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>Voltage sag and swell detection</li>
-                  <li>Interruption event logging</li>
-                  <li>ITIC/CBEMA curve compliance</li>
-                  <li>Overvoltage and undervoltage alerts</li>
-                  <li>RMS voltage tracking per phase</li>
-                </ul>
-              </div>
-            </details>
-          </Card>
-
-          <!-- Unbalance Monitoring -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">⚖️</div>
-              <h3 class="feature-title">Unbalance Monitoring</h3>
-            </div>
-            <p class="feature-description">
-              Monitor 3-phase unbalance per NEMA MG-1, prevent motor failures
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>Real-time voltage and current unbalance</li>
-                  <li>NEMA MG-1 compliance checking</li>
-                  <li>Motor derating calculations</li>
-                  <li>Phase-by-phase comparison</li>
-                  <li>Predictive failure warnings</li>
-                </ul>
-              </div>
-            </details>
-          </Card>
-
-          <!-- Power Factor -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">⚙️</div>
-              <h3 class="feature-title">Power Factor</h3>
-            </div>
-            <p class="feature-description">
-              Track displacement & true PF, reduce utility penalties
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>Displacement power factor tracking</li>
-                  <li>True power factor measurement</li>
-                  <li>Reactive power monitoring</li>
-                  <li>Utility penalty cost calculations</li>
-                  <li>Capacitor bank optimization suggestions</li>
-                </ul>
-              </div>
-            </details>
-          </Card>
-
-          <!-- Frequency -->
-          <Card variant="elevated" class="feature-card">
-            <div class="feature-header">
-              <div class="feature-icon">📡</div>
-              <h3 class="feature-title">Frequency Monitoring</h3>
-            </div>
-            <p class="feature-description">
-              Sub-second measurements for NERC CIP compliance
-            </p>
-            <details class="feature-details">
-              <summary>Learn more</summary>
-              <div class="details-content">
-                <ul>
-                  <li>High-precision frequency measurement</li>
-                  <li>Rate of change of frequency (ROCOF)</li>
-                  <li>NERC CIP compliance reporting</li>
-                  <li>Grid stability indicators</li>
-                  <li>Frequency deviation alerts</li>
-                </ul>
-              </div>
-            </details>
-          </Card>
+              <p class="feature-description">{feature.description}</p>
+              {feature.details && feature.details.length > 0 && (
+                <details class="feature-details">
+                  <summary>Learn more</summary>
+                  <div class="details-content">
+                    <ul>
+                      {feature.details.map((detail) => (
+                        <li>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
+              )}
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -206,27 +95,25 @@ import Card from '../components/Card.astro';
           <div class="roi-content">
             <div class="roi-visual">
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+                src={roi.image}
                 alt="ROI calculator dashboard"
                 loading="lazy"
               />
             </div>
             <div class="roi-info">
-              <h2 class="roi-title">Calculate Your Savings</h2>
+              <h2 class="roi-title">{roi.title}</h2>
               <div class="roi-stats">
                 <div class="roi-stat">
-                  <span class="roi-stat-value">$50K+</span>
-                  <span class="roi-stat-label">Average savings per year</span>
+                  <span class="roi-stat-value">{roi.stat1Value}</span>
+                  <span class="roi-stat-label">{roi.stat1Label}</span>
                 </div>
                 <div class="roi-stat">
-                  <span class="roi-stat-value">3-6 months</span>
-                  <span class="roi-stat-label">Typical payback period</span>
+                  <span class="roi-stat-value">{roi.stat2Value}</span>
+                  <span class="roi-stat-label">{roi.stat2Label}</span>
                 </div>
               </div>
-              <p class="roi-description">
-                Product 0 helps you avoid costly downtime, equipment failures, and compliance penalties - all at zero cost.
-              </p>
-              <Button size="lg" href="/contact">Start Free Monitoring</Button>
+              <p class="roi-description">{roi.description}</p>
+              <Button size="lg" href="/contact">{roi.buttonText}</Button>
             </div>
           </div>
         </Card>
@@ -278,13 +165,9 @@ import Card from '../components/Card.astro';
 <style>
   /* Hero Section */
   .hero {
-    padding: var(--space-24) 0 var(--space-20);
+    padding: var(--space-20) 0 var(--space-12);
     text-align: center;
-    background: linear-gradient(
-      180deg,
-      var(--bg-primary) 0%,
-      var(--bg-secondary) 100%
-    );
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   }
 
   .hero .container {
