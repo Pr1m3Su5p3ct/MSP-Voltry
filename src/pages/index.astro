@@ -531,30 +531,52 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-8);
   }
 
   .feature-card {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px) scale(1.02);
   }
 
   .feature-icon {
     font-size: 2.5rem;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
+    transition: transform var(--transition-base);
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1);
   }
 
   .feature-title {
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
     color: var(--text-primary);
+    margin: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .feature-card:hover .feature-title {
+    color: var(--color-primary-600);
+  }
+
+  [data-theme="dark"] .feature-card:hover .feature-title {
+    color: var(--color-primary-400);
   }
 
   .feature-description {
     font-size: var(--text-sm);
     color: var(--text-secondary);
     line-height: var(--line-relaxed);
+    margin: 0;
   }
 
   /* Pricing Section */
@@ -565,19 +587,32 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-8);
+    align-items: stretch;
   }
 
   .pricing-card {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-5);
+    padding: var(--space-8);
     position: relative;
+    transition: all var(--transition-base);
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-4), var(--glow-soft);
   }
 
   .pricing-card.featured {
     border: 2px solid var(--color-primary-500);
-    transform: scale(1.05);
+    box-shadow: var(--elevation-3), var(--glow-primary);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--elevation-5), var(--glow-primary);
   }
 
   .pricing-badge {
