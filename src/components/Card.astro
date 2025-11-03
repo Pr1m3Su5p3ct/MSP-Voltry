@@ -1,0 +1,86 @@
+---
+interface Props {
+  variant?: 'default' | 'elevated' | 'outlined' | 'interactive';
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`card card-${variant} card-padding-${padding} ${className}`}>
+  <slot />
+</div>
+
+<style>
+  .card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  /* Padding variants */
+  .card-padding-sm {
+    padding: var(--space-4);
+  }
+
+  .card-padding-md {
+    padding: var(--space-6);
+  }
+
+  .card-padding-lg {
+    padding: var(--space-8);
+  }
+
+  /* Default variant */
+  .card-default {
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Elevated variant */
+  .card-elevated {
+    box-shadow: var(--elevation-2);
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Outlined variant */
+  .card-outlined {
+    border: 2px solid var(--border-default);
+  }
+
+  /* Interactive variant */
+  .card-interactive {
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+  }
+
+  .card-interactive:hover {
+    box-shadow: var(--elevation-3);
+    transform: translateY(-4px);
+    border-color: var(--color-primary-300);
+  }
+
+  [data-theme="dark"] .card-interactive:hover {
+    border-color: var(--color-primary-700);
+  }
+
+  .card-interactive:active {
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-2);
+  }
+
+  /* Responsive padding */
+  @media (max-width: 768px) {
+    .card-padding-lg {
+      padding: var(--space-6);
+    }
+
+    .card-padding-md {
+      padding: var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,783 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+---
+
+<BaseLayout title="Voltry - Predict Power Quality Issues Before They Happen">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Predict Power Quality Issues<br />
+            <span class="gradient-text">Before They Happen</span>
+          </h1>
+          <p class="hero-subtitle">
+            AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities
+          </p>
+          <div class="hero-cta">
+            <Button size="lg" href="/contact">Start Free Pilot</Button>
+            <Button variant="outline" size="lg" href="#how-it-works">See How It Works</Button>
+          </div>
+          <div class="hero-trust">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>No credit card</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>5-min setup</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Free forever</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80"
+              alt="Modern data center with advanced monitoring systems"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem-Solution-Proof Cards -->
+    <section class="psp-section">
+      <div class="container">
+        <div class="psp-grid">
+          <Card variant="elevated" class="psp-card">
+            <div class="psp-icon problem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="psp-title">The Problem</h3>
+            <p class="psp-description">
+              Power quality issues cost data centers <strong>$500K+/year</strong> in equipment failures, downtime, and IEEE 519 penalties
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="psp-card">
+            <div class="psp-icon solution">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+              </svg>
+            </div>
+            <h3 class="psp-title">The Solution</h3>
+            <p class="psp-description">
+              Voltry combines <strong>real-time monitoring</strong> with <strong>AI forecasting</strong> to detect issues 24-72 hours before they occur
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="psp-card">
+            <div class="psp-icon proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="psp-title">The Proof</h3>
+            <p class="psp-description">
+              <strong>50+ data centers</strong> trust Voltry<br />
+              <strong>$50M+</strong> in losses prevented<br />
+              <strong>99.9%</strong> uptime achieved
+            </p>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>Comprehensive Power Quality Management</h2>
+          <p>Everything you need to monitor, predict, and prevent power quality issues</p>
+        </div>
+
+        <div class="features-grid">
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Real-Time Monitoring</h3>
+            <p class="feature-description">
+              Track THD, voltage, unbalance, power factor, and frequency with sub-millisecond precision
+            </p>
+          </Card>
+
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">🔮</div>
+            <h3 class="feature-title">AI Forecasting</h3>
+            <p class="feature-description">
+              Predict failures 24-72 hours ahead with 95% accuracy (MAPE: 4.7%)
+            </p>
+          </Card>
+
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">IEEE 519 Compliance</h3>
+            <p class="feature-description">
+              Automated compliance reports, zero manual work
+            </p>
+          </Card>
+
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3 class="feature-title">Privacy-First</h3>
+            <p class="feature-description">
+              Federated learning without sharing raw data
+            </p>
+          </Card>
+
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3 class="feature-title">Fast ROI</h3>
+            <p class="feature-description">
+              Typical payback: 3-6 months through avoided downtime
+            </p>
+          </Card>
+
+          <Card variant="interactive" class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3 class="feature-title">Easy Setup</h3>
+            <p class="feature-description">
+              Cloud-based, no hardware, 5-minute installation
+            </p>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2>Simple, Transparent Pricing</h2>
+          <p>Start free, upgrade when you need forecasting</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Product 0 -->
+          <Card variant="elevated" class="pricing-card">
+            <div class="pricing-badge free">FREE FOREVER</div>
+            <h3 class="pricing-name">Product 0</h3>
+            <div class="pricing-price">
+              <span class="price-amount">$0</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="pricing-description">
+              Real-time monitoring for power quality compliance
+            </p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Real-time THD monitoring</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Voltage quality tracking</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>IEEE 519 compliance reports</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Email alerts</li>
+            </ul>
+            <Button variant="outline" size="lg" href="/product-0" class="pricing-cta">
+              Learn More
+            </Button>
+          </Card>
+
+          <!-- Product 1 -->
+          <Card variant="elevated" class="pricing-card featured">
+            <div class="pricing-badge primary">MOST POPULAR</div>
+            <h3 class="pricing-name">Product 1</h3>
+            <div class="pricing-price">
+              <span class="price-amount">$499</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="pricing-description">
+              Everything in Product 0, plus AI forecasting
+            </p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Everything in Product 0</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>24-72h forecasts</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Failure prediction</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Federated learning</li>
+            </ul>
+            <Button size="lg" href="/product-1" class="pricing-cta">
+              Get Started
+            </Button>
+          </Card>
+
+          <!-- Enterprise -->
+          <Card variant="elevated" class="pricing-card">
+            <div class="pricing-badge">ENTERPRISE</div>
+            <h3 class="pricing-name">Custom</h3>
+            <div class="pricing-price">
+              <span class="price-amount">Custom</span>
+            </div>
+            <p class="pricing-description">
+              Tailored solutions for large deployments
+            </p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Everything in Product 1</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Dedicated support</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>On-premise deployment</li>
+              <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Custom SLA</li>
+            </ul>
+            <Button variant="outline" size="lg" href="/contact" class="pricing-cta">
+              Contact Sales
+            </Button>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonial-card">
+          <Card variant="elevated" padding="lg">
+            <div class="testimonial-content">
+              <div class="quote-icon">"</div>
+              <blockquote class="testimonial-quote">
+                Voltry's AI predicted a critical failure 48 hours before it occurred, saving us $250K in downtime
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <div class="author-name">Sarah Chen</div>
+                  <div class="author-title">VP Operations, GlobalData Centers</div>
+                </div>
+              </div>
+              <div class="testimonial-metric">
+                <span class="metric-value">14×</span>
+                <span class="metric-label">ROI in 6 months</span>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Stats -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Data Centers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">$50M+</div>
+            <div class="stat-label">Losses Prevented</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">Uptime SLA</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">95%</div>
+            <div class="stat-label">Forecast Accuracy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <Card variant="elevated" padding="lg" class="cta-card">
+          <h2 class="cta-title">Ready to Protect Your Facility?</h2>
+          <p class="cta-description">
+            Join 50+ data centers using Voltry for predictive power quality management
+          </p>
+          <Button size="lg" href="/contact">Start Your Free Pilot Today</Button>
+        </Card>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: var(--space-24) 0 var(--space-20);
+    background: linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      var(--bg-secondary) 100%
+    );
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .hero-title {
+    font-size: var(--text-6xl);
+    line-height: var(--line-tight);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-600),
+      var(--color-accent-500)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .hero-trust svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-success);
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-image-placeholder {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--elevation-4);
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* PSP Section */
+  .psp-section {
+    padding: var(--space-20) 0;
+  }
+
+  .psp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .psp-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .psp-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-2);
+  }
+
+  .psp-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .psp-icon.problem {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+  }
+
+  .psp-icon.solution {
+    background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
+    color: var(--color-primary-700);
+  }
+
+  .psp-icon.proof {
+    background: linear-gradient(135deg, var(--color-accent-100), var(--color-accent-200));
+    color: var(--color-accent-800);
+  }
+
+  .psp-title {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .psp-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: var(--space-20) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .feature-title {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .feature-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  /* Pricing Section */
+  .pricing-section {
+    padding: var(--space-20) 0;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .pricing-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border: 2px solid var(--color-primary-500);
+    transform: scale(1.05);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-700);
+    width: fit-content;
+  }
+
+  .pricing-badge.free {
+    background: linear-gradient(135deg, var(--color-accent-100), var(--color-accent-200));
+    color: var(--color-accent-900);
+  }
+
+  .pricing-badge.primary {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+    color: white;
+  }
+
+  .pricing-name {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .price-amount {
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+  }
+
+  .price-period {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .pricing-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .pricing-features svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--color-success);
+    margin-top: 2px;
+  }
+
+  .pricing-cta {
+    width: 100%;
+    margin-top: var(--space-4);
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: var(--space-20) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .testimonial-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    text-align: center;
+    position: relative;
+  }
+
+  .quote-icon {
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-primary-200);
+    font-family: Georgia, serif;
+  }
+
+  .testimonial-quote {
+    font-size: var(--text-2xl);
+    line-height: var(--line-relaxed);
+    color: var(--text-primary);
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .author-name {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .author-title {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .testimonial-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+  }
+
+  .metric-value {
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .metric-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Stats Section */
+  .stats-section {
+    padding: var(--space-16) 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-label {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: var(--space-20) 0;
+  }
+
+  .cta-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    background: linear-gradient(
+      135deg,
+      var(--bg-secondary) 0%,
+      var(--bg-tertiary) 100%
+    );
+  }
+
+  .cta-title {
+    font-size: var(--text-4xl);
+    color: var(--text-primary);
+  }
+
+  .cta-description {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero .container {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .psp-grid,
+    .features-grid,
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+      transform: scale(1);
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .hero-cta {
+      flex-direction: column;
+    }
+
+    .hero-trust {
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: var(--text-3xl);
+    }
+
+    .testimonial-quote {
+      font-size: var(--text-lg);
+    }
+
+    .cta-title {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>

@@ -1,0 +1,550 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+---
+
+<BaseLayout
+  title="Contact Us - Start Your Free Pilot | Voltry"
+  description="Request a free pilot of Voltry's power quality monitoring. Start monitoring in less than 5 minutes."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">
+          Request a <span class="gradient-text">Free Pilot</span>
+        </h1>
+        <p class="hero-subtitle">
+          Start monitoring in less than 5 minutes
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <Card variant="elevated" padding="lg" class="form-card">
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+
+              <!-- Honeypot field for spam prevention -->
+              <div style="display: none;">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+              </div>
+
+              <div class="form-group">
+                <label for="name" class="form-label">Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="john@company.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="company" class="form-label">Company *</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  class="form-input"
+                  placeholder="Acme Data Centers"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="facility-size" class="form-label">Facility Size *</label>
+                <select
+                  id="facility-size"
+                  name="facility-size"
+                  class="form-input"
+                  required
+                >
+                  <option value="">Select facility size</option>
+                  <option value="small">Small (< 1 MW)</option>
+                  <option value="medium">Medium (1-10 MW)</option>
+                  <option value="large">Large (10-50 MW)</option>
+                  <option value="enterprise">Enterprise (> 50 MW)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input form-textarea"
+                  rows="4"
+                  placeholder="Tell us about your power quality challenges..."
+                ></textarea>
+              </div>
+
+              <div class="form-group form-checkbox">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  required
+                />
+                <label for="consent" class="checkbox-label">
+                  I agree to receive communications from Voltry
+                </label>
+              </div>
+
+              <button type="submit" class="form-submit">
+                Start Free Pilot
+              </button>
+
+              <p class="form-footer">
+                By submitting, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>
+              </p>
+            </form>
+          </Card>
+
+          <!-- Contact Info Sidebar -->
+          <div class="contact-sidebar">
+            <!-- Email -->
+            <Card variant="elevated" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <h3 class="contact-info-title">Email</h3>
+              <a href="mailto:sales@voltry.com" class="contact-info-link">sales@voltry.com</a>
+              <p class="contact-info-description">For sales & demos</p>
+            </Card>
+
+            <!-- Support -->
+            <Card variant="elevated" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </div>
+              <h3 class="contact-info-title">Support</h3>
+              <a href="mailto:support@voltry.com" class="contact-info-link">support@voltry.com</a>
+              <p class="contact-info-description">For technical questions</p>
+            </Card>
+
+            <!-- Location -->
+            <Card variant="elevated" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h3 class="contact-info-title">Location</h3>
+              <p class="contact-info-text">San Francisco, CA</p>
+              <p class="contact-info-description">Serving globally</p>
+            </Card>
+
+            <!-- Hours -->
+            <Card variant="elevated" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <h3 class="contact-info-title">Hours</h3>
+              <p class="contact-info-text">Mon-Fri, 9AM-6PM PST</p>
+              <p class="contact-info-description">24/7 emergency support for customers</p>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about getting started</p>
+        </div>
+
+        <div class="faq-grid">
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">How quickly can I get started?</h3>
+            <p class="faq-answer">
+              Most customers are up and running in less than 5 minutes. Product 0 is cloud-based and requires no hardware installation - just connect your monitoring equipment and you're ready to go.
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">Is Product 0 really free forever?</h3>
+            <p class="faq-answer">
+              Yes! Product 0 includes real-time monitoring, compliance reports, and alerts at no cost. You can upgrade to Product 1 anytime to add AI forecasting capabilities.
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">What equipment do I need?</h3>
+            <p class="faq-answer">
+              Voltry works with standard power quality meters and monitoring equipment. We support all major brands and can help you choose the right equipment if you're just getting started.
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">How accurate are the AI predictions?</h3>
+            <p class="faq-answer">
+              Product 1's AI forecasting achieves 95% accuracy with a Mean Absolute Percentage Error (MAPE) of just 4.7%. Our federated learning approach continuously improves predictions across our network.
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">Is my data secure?</h3>
+            <p class="faq-answer">
+              Absolutely. All data is encrypted in transit and at rest. Product 1's federated learning ensures your raw data never leaves your facility. We're SOC 2 Type II certified and GDPR compliant.
+            </p>
+          </Card>
+
+          <Card variant="elevated" class="faq-card">
+            <h3 class="faq-question">Can I try Product 1 before committing?</h3>
+            <p class="faq-answer">
+              Yes! We offer a 30-day free trial of Product 1 with no credit card required. Experience the full power of AI forecasting risk-free.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: var(--space-20) 0 var(--space-12);
+    text-align: center;
+    background: linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      var(--bg-secondary) 100%
+    );
+  }
+
+  .hero-title {
+    font-size: var(--text-5xl);
+    line-height: var(--line-tight);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: var(--space-20) 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Contact Form */
+  .form-card {
+    position: sticky;
+    top: calc(4rem + var(--space-4));
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-label {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+  }
+
+  .form-input {
+    padding: var(--space-3);
+    font-size: var(--text-base);
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px var(--color-primary-100);
+    background-color: var(--bg-secondary);
+  }
+
+  [data-theme="dark"] .form-input:focus {
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
+  }
+
+  .form-input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  select.form-input {
+    cursor: pointer;
+  }
+
+  .form-checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary-600);
+  }
+
+  .checkbox-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .form-submit {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    font-family: var(--font-sans);
+    color: white;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--elevation-2);
+  }
+
+  .form-submit:hover {
+    box-shadow: var(--elevation-3);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  }
+
+  .form-submit:active {
+    transform: translateY(0);
+    box-shadow: var(--elevation-1);
+  }
+
+  .form-footer {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  .form-footer a {
+    color: var(--color-primary-600);
+    text-decoration: underline;
+  }
+
+  /* Contact Sidebar */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .contact-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+
+  .contact-info-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
+    color: var(--color-primary-700);
+    border-radius: var(--radius-lg);
+  }
+
+  [data-theme="dark"] .contact-info-icon {
+    background: linear-gradient(135deg, var(--color-primary-900), var(--color-primary-800));
+    color: var(--color-primary-300);
+  }
+
+  .contact-info-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-info-title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+  }
+
+  .contact-info-link {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    color: var(--color-primary-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .contact-info-link:hover {
+    color: var(--color-primary-700);
+  }
+
+  .contact-info-text {
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+  }
+
+  .contact-info-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: var(--space-20) 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .faq-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-question {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .faq-answer {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-card {
+      position: static;
+    }
+
+    .contact-sidebar {
+      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .contact-sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>
