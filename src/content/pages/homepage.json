@@ -1,10 +1,10 @@
 {
   "hero": {
-    "title": "Predict Power Quality Issues",
     "highlightedText": "Before They Happen",
+    "heroImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
+    "primaryCTA": "Apply to join the pilot!",
     "subtitle": "AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities",
-    "primaryCTA": "Start Free Pilot",
-    "secondaryCTA": "See How It Works",
+    "title": "Predict Power Quality Issues",
     "trust1": "No credit card",
     "trust2": "5-min setup",
     "trust3": "Free forever",
@@ -81,11 +81,13 @@
     "subtitle": "Start free, upgrade when you need forecasting",
     "tiers": [
       {
-        "badge": "FREE FOREVER",
-        "badgeType": "free",
-        "name": "Product 0",
-        "price": "$0",
         "period": "/month",
+        "badge": "FREE FOREVER",
+        "price": "$0",
+        "name": "Product 0",
+        "buttonLink": "/product-0",
+        "featured": false,
+        "buttonVariant": "outline",
         "description": "Real-time monitoring for power quality compliance",
         "features": [
           "Real-time THD monitoring",
@@ -93,17 +95,17 @@
           "IEEE 519 compliance reports",
           "Email alerts"
         ],
-        "buttonText": "Learn More",
-        "buttonLink": "/product-0",
-        "buttonVariant": "outline",
-        "featured": false
+        "badgeType": "free",
+        "buttonText": "Learn More"
       },
       {
-        "badge": "MOST POPULAR",
-        "badgeType": "primary",
-        "name": "Product 1",
-        "price": "$499",
         "period": "/month",
+        "badge": "MOST POPULAR",
+        "price": "$499",
+        "name": "Product 1",
+        "buttonLink": "/product-1",
+        "featured": true,
+        "buttonVariant": "primary",
         "description": "Everything in Product 0, plus AI forecasting",
         "features": [
           "Everything in Product 0",
@@ -111,17 +113,17 @@
           "Failure prediction",
           "Federated learning"
         ],
-        "buttonText": "Get Started",
-        "buttonLink": "/product-1",
-        "buttonVariant": "primary",
-        "featured": true
+        "badgeType": "primary",
+        "buttonText": "Get Started"
       },
       {
-        "badge": "ENTERPRISE",
-        "badgeType": "default",
-        "name": "Custom",
-        "price": "Custom",
         "period": "",
+        "badge": "ENTERPRISE",
+        "price": "Custom",
+        "name": "Custom",
+        "buttonLink": "/contact",
+        "featured": false,
+        "buttonVariant": "outline",
         "description": "Tailored solutions for large deployments",
         "features": [
           "Everything in Product 1",
@@ -129,10 +131,8 @@
           "On-premise deployment",
           "Custom SLA"
         ],
-        "buttonText": "Contact Sales",
-        "buttonLink": "/contact",
-        "buttonVariant": "outline",
-        "featured": false
+        "badgeType": "default",
+        "buttonText": "Contact Sales"
       }
     ]
   },
