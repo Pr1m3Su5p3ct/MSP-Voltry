@@ -188,48 +188,78 @@ import Card from '../components/Card.astro';
           <p>Everything you need to know about getting started</p>
         </div>
 
-        <div class="faq-grid">
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">How quickly can I get started?</h3>
-            <p class="faq-answer">
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">How quickly can I get started?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Most customers are up and running in less than 5 minutes. Product 0 is cloud-based and requires no hardware installation - just connect your monitoring equipment and you're ready to go.
-            </p>
-          </Card>
+            </div>
+          </details>
 
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">Is Product 0 really free forever?</h3>
-            <p class="faq-answer">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">Is Product 0 really free forever?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Yes! Product 0 includes real-time monitoring, compliance reports, and alerts at no cost. You can upgrade to Product 1 anytime to add AI forecasting capabilities.
-            </p>
-          </Card>
+            </div>
+          </details>
 
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">What equipment do I need?</h3>
-            <p class="faq-answer">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">What equipment do I need?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Voltry works with standard power quality meters and monitoring equipment. We support all major brands and can help you choose the right equipment if you're just getting started.
-            </p>
-          </Card>
+            </div>
+          </details>
 
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">How accurate are the AI predictions?</h3>
-            <p class="faq-answer">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">How accurate are the AI predictions?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Product 1's AI forecasting achieves 95% accuracy with a Mean Absolute Percentage Error (MAPE) of just 4.7%. Our federated learning approach continuously improves predictions across our network.
-            </p>
-          </Card>
+            </div>
+          </details>
 
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">Is my data secure?</h3>
-            <p class="faq-answer">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">Is my data secure?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Absolutely. All data is encrypted in transit and at rest. Product 1's federated learning ensures your raw data never leaves your facility. We're SOC 2 Type II certified and GDPR compliant.
-            </p>
-          </Card>
+            </div>
+          </details>
 
-          <Card variant="elevated" class="faq-card">
-            <h3 class="faq-question">Can I try Product 1 before committing?</h3>
-            <p class="faq-answer">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">Can I try Product 1 before committing?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-answer">
               Yes! We offer a 30-day free trial of Product 1 with no credit card required. Experience the full power of AI forecasting risk-free.
-            </p>
-          </Card>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -243,11 +273,34 @@ import Card from '../components/Card.astro';
   .hero {
     padding: var(--space-20) 0 var(--space-12);
     text-align: center;
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(
       180deg,
       var(--bg-primary) 0%,
       var(--bg-secondary) 100%
     );
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, var(--text-primary) 2px, var(--text-primary) 3px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, var(--text-primary) 2px, var(--text-primary) 3px);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero > .container {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-title {
@@ -312,20 +365,35 @@ import Card from '../components/Card.astro';
     font-family: var(--font-sans);
     color: var(--text-primary);
     background-color: var(--bg-tertiary);
-    border: 1px solid var(--border-subtle);
+    border: 2px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-base);
+    position: relative;
+  }
+
+  .form-input:hover {
+    border-color: var(--border-default);
+    background-color: var(--bg-secondary);
   }
 
   .form-input:focus {
     outline: none;
     border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px var(--color-primary-100);
+    box-shadow: 0 0 0 4px var(--color-primary-100), var(--elevation-1);
     background-color: var(--bg-secondary);
+    transform: translateY(-1px);
   }
 
   [data-theme="dark"] .form-input:focus {
-    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
+    box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.2), var(--elevation-1);
+  }
+
+  .form-input:valid:not(:placeholder-shown) {
+    border-color: var(--color-success);
+  }
+
+  .form-input:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: var(--color-error);
   }
 
   .form-input::placeholder {
@@ -372,18 +440,44 @@ import Card from '../components/Card.astro';
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
-    box-shadow: var(--elevation-2);
+    box-shadow: var(--elevation-2), var(--glow-primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .form-submit:hover::before {
+    width: 300px;
+    height: 300px;
   }
 
   .form-submit:hover {
-    box-shadow: var(--elevation-3);
-    transform: translateY(-2px);
+    box-shadow: var(--elevation-3), var(--glow-primary);
+    transform: translateY(-2px) scale(1.02);
     background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
   }
 
   .form-submit:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.98);
     box-shadow: var(--elevation-1);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
   }
 
   .form-footer {
@@ -468,11 +562,27 @@ import Card from '../components/Card.astro';
   .faq-section {
     padding: var(--space-20) 0;
     background-color: var(--bg-secondary);
+    position: relative;
+  }
+
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.02;
+    background-image: radial-gradient(circle at 2px 2px, var(--text-primary) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
   }
 
   .section-header {
     text-align: center;
     margin-bottom: var(--space-16);
+    position: relative;
+    z-index: 1;
   }
 
   .section-header h2 {
@@ -486,28 +596,119 @@ import Card from '../components/Card.astro';
     color: var(--text-secondary);
   }
 
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
-  }
-
-  .faq-card {
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq-item {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    box-shadow: var(--elevation-1);
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--elevation-2), var(--glow-soft);
+    border-color: var(--border-default);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--elevation-3), var(--glow-soft);
+    border-color: var(--color-primary-300);
+  }
+
+  [data-theme="dark"] .faq-item[open] {
+    border-color: var(--color-primary-700);
   }
 
   .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    transition: all var(--transition-fast);
+    position: relative;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    background-color: var(--bg-tertiary);
+  }
+
+  .faq-item[open] .faq-question {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-50) 0%,
+      transparent 100%
+    );
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  [data-theme="dark"] .faq-item[open] .faq-question {
+    background: linear-gradient(
+      135deg,
+      rgba(147, 51, 234, 0.1) 0%,
+      transparent 100%
+    );
+  }
+
+  .faq-question-text {
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
     color: var(--text-primary);
   }
 
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary-600);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  [data-theme="dark"] .faq-icon {
+    color: var(--color-primary-400);
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
   .faq-answer {
+    padding: var(--space-6);
     font-size: var(--text-base);
     color: var(--text-secondary);
     line-height: var(--line-relaxed);
+    animation: fadeInDown 0.3s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Responsive Design */
@@ -523,10 +724,6 @@ import Card from '../components/Card.astro';
     .contact-sidebar {
       grid-template-columns: repeat(2, 1fr);
       display: grid;
-    }
-
-    .faq-grid {
-      grid-template-columns: 1fr;
     }
   }
 
