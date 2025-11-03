@@ -1,0 +1,67 @@
+{
+  "productLinks": [
+    {
+      "label": "Product 0",
+      "url": "/product-0"
+    },
+    {
+      "label": "Product 1",
+      "url": "/product-1"
+    },
+    {
+      "label": "Pricing",
+      "url": "/#pricing"
+    }
+  ],
+  "resourceLinks": [
+    {
+      "label": "Blog",
+      "url": "/blog"
+    },
+    {
+      "label": "Case Studies",
+      "url": "/case-studies"
+    },
+    {
+      "label": "Documentation",
+      "url": "/docs"
+    },
+    {
+      "label": "API",
+      "url": "/api"
+    }
+  ],
+  "companyLinks": [
+    {
+      "label": "About",
+      "url": "/about"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact"
+    },
+    {
+      "label": "Investors",
+      "url": "/investors"
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Privacy Policy",
+      "url": "/privacy"
+    },
+    {
+      "label": "Terms of Service",
+      "url": "/terms"
+    },
+    {
+      "label": "Cookie Policy",
+      "url": "/cookies"
+    }
+  ],
+  "newsletterDescription": "Subscribe to updates on power quality insights",
+  "linkedin": "https://linkedin.com",
+  "twitter": "https://twitter.com",
+  "github": "https://github.com",
+  "address": "San Francisco, CA"
+}

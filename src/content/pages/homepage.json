@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "title": "Predict Power Quality Issues",
+    "highlightedText": "Before They Happen",
+    "subtitle": "AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities",
+    "primaryCTA": "Start Free Pilot",
+    "secondaryCTA": "See How It Works",
+    "trust1": "No credit card",
+    "trust2": "5-min setup",
+    "trust3": "Free forever",
+    "heroImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80"
+  },
+  "pspCards": [
+    {
+      "title": "The Problem",
+      "description": "Power quality issues cost data centers $500K+/year in equipment failures, downtime, and IEEE 519 penalties",
+      "icon": "problem"
+    },
+    {
+      "title": "The Solution",
+      "description": "Voltry combines real-time monitoring with AI forecasting to detect issues 24-72 hours before they occur",
+      "icon": "solution"
+    },
+    {
+      "title": "The Proof",
+      "description": "50+ data centers trust Voltry • $50M+ in losses prevented • 99.9% uptime achieved",
+      "icon": "proof"
+    }
+  ],
+  "features": {
+    "title": "Comprehensive Power Quality Management",
+    "subtitle": "Everything you need to monitor, predict, and prevent power quality issues",
+    "list": [
+      {
+        "icon": "⚡",
+        "title": "Real-Time Monitoring",
+        "description": "Track THD, voltage, unbalance, power factor, and frequency with sub-millisecond precision"
+      },
+      {
+        "icon": "🔮",
+        "title": "AI Forecasting",
+        "description": "Predict failures 24-72 hours ahead with 95% accuracy (MAPE: 4.7%)"
+      },
+      {
+        "icon": "📊",
+        "title": "IEEE 519 Compliance",
+        "description": "Automated compliance reports, zero manual work"
+      },
+      {
+        "icon": "🔐",
+        "title": "Privacy-First",
+        "description": "Federated learning without sharing raw data"
+      },
+      {
+        "icon": "💰",
+        "title": "Fast ROI",
+        "description": "Typical payback: 3-6 months through avoided downtime"
+      },
+      {
+        "icon": "🚀",
+        "title": "Easy Setup",
+        "description": "Cloud-based, no hardware, 5-minute installation"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Start free, upgrade when you need forecasting",
+    "tiers": [
+      {
+        "badge": "FREE FOREVER",
+        "badgeType": "free",
+        "name": "Product 0",
+        "price": "$0",
+        "period": "/month",
+        "description": "Real-time monitoring for power quality compliance",
+        "features": [
+          "Real-time THD monitoring",
+          "Voltage quality tracking",
+          "IEEE 519 compliance reports",
+          "Email alerts"
+        ],
+        "buttonText": "Learn More",
+        "buttonLink": "/product-0",
+        "buttonVariant": "outline",
+        "featured": false
+      },
+      {
+        "badge": "MOST POPULAR",
+        "badgeType": "primary",
+        "name": "Product 1",
+        "price": "$499",
+        "period": "/month",
+        "description": "Everything in Product 0, plus AI forecasting",
+        "features": [
+          "Everything in Product 0",
+          "24-72h forecasts",
+          "Failure prediction",
+          "Federated learning"
+        ],
+        "buttonText": "Get Started",
+        "buttonLink": "/product-1",
+        "buttonVariant": "primary",
+        "featured": true
+      },
+      {
+        "badge": "ENTERPRISE",
+        "badgeType": "default",
+        "name": "Custom",
+        "price": "Custom",
+        "period": "",
+        "description": "Tailored solutions for large deployments",
+        "features": [
+          "Everything in Product 1",
+          "Dedicated support",
+          "On-premise deployment",
+          "Custom SLA"
+        ],
+        "buttonText": "Contact Sales",
+        "buttonLink": "/contact",
+        "buttonVariant": "outline",
+        "featured": false
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "50+",
+      "label": "Data Centers"
+    },
+    {
+      "value": "$50M+",
+      "label": "Losses Prevented"
+    },
+    {
+      "value": "99.9%",
+      "label": "Uptime SLA"
+    },
+    {
+      "value": "95%",
+      "label": "Forecast Accuracy"
+    }
+  ],
+  "finalCTA": {
+    "title": "Ready to Protect Your Facility?",
+    "description": "Join 50+ data centers using Voltry for predictive power quality management",
+    "buttonText": "Start Your Free Pilot Today"
+  }
+}
