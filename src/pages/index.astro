@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import VerticalSlider from '../components/VerticalSlider.astro';
+import CircuitChip from '../components/CircuitChip.astro';
 import { getCollection } from 'astro:content';
 
 // Import page content from CMS
@@ -16,7 +17,7 @@ const featuredTestimonial = testimonials
   .filter(t => t.data.featured)
   .sort((a, b) => a.data.order - b.data.order)[0];
 
-const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
+const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homepageData;
 ---
 
 <BaseLayout title="Voltry - Predict Power Quality Issues Before They Happen">
@@ -96,6 +97,17 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
         <div class="section-header">
           <h2>{features.title}</h2>
           <p>{features.subtitle}</p>
+        </div>
+
+        <!-- Single Pane of Glass Visualization -->
+        <div class="single-pane-visual">
+          <CircuitChip />
+          <div class="visual-description">
+            <h3 class="visual-title">{singlePane.title}</h3>
+            <p class="visual-text">
+              {singlePane.description}
+            </p>
+          </div>
         </div>
 
         <div class="features-grid">
@@ -523,6 +535,56 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
     color: var(--text-secondary);
   }
 
+  /* Single Pane of Glass Visualization */
+  .single-pane-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    margin-bottom: var(--space-16);
+    padding: var(--space-8);
+    background: linear-gradient(
+      135deg,
+      var(--bg-elevated) 0%,
+      var(--bg-tertiary) 100%
+    );
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--elevation-2);
+    transition: all var(--transition-base);
+  }
+
+  .single-pane-visual:hover {
+    box-shadow: var(--elevation-3), var(--glow-soft);
+    border-color: var(--color-primary-500);
+  }
+
+  .visual-description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .visual-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-600),
+      var(--color-accent-500)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .visual-text {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -834,6 +896,12 @@ const { hero, pspCards, features, pricing, stats, finalCTA } = homepageData;
     .features-grid,
     .pricing-grid {
       grid-template-columns: 1fr;
+    }
+
+    .single-pane-visual {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      text-align: center;
     }
 
     .pricing-card.featured {

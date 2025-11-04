@@ -40,6 +40,10 @@
       "icon": "proof"
     }
   ],
+  "singlePane": {
+    "title": "Single Pane of Glass",
+    "description": "All your power quality metrics flow into one unified monitoring platform. No more juggling multiple tools or data sources."
+  },
   "features": {
     "title": "Comprehensive Power Quality Management",
     "subtitle": "Everything you need to monitor, predict, and prevent power quality issues",

@@ -47,6 +47,13 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Icon", name: "icon", widget: "string" }
 
+          - label: "Single Pane Visualization"
+            name: "singlePane"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
           - label: "Features Section"
             name: "features"
             widget: "object"

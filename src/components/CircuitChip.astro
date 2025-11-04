@@ -1,0 +1,283 @@
+---
+// Animated circuit chip visualization showing data flowing into a central monitoring system
+// Perfect for illustrating "single pane of glass" concept
+---
+
+<div class="circuit-container">
+  <svg class="circuit-loader" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background traces (dim) -->
+    <path class="trace-bg" d="M 10,100 L 60,100" />
+    <path class="trace-bg" d="M 140,100 L 190,100" />
+    <path class="trace-bg" d="M 100,10 L 100,60" />
+    <path class="trace-bg" d="M 100,140 L 100,190" />
+    <path class="trace-bg" d="M 30,30 L 65,65" />
+    <path class="trace-bg" d="M 135,135 L 170,170" />
+    <path class="trace-bg" d="M 30,170 L 65,135" />
+    <path class="trace-bg" d="M 135,65 L 170,30" />
+
+    <!-- Flowing traces (animated) - Power Quality Metrics -->
+    <path class="trace-flow trace-primary" d="M 10,100 L 60,100" />
+    <path class="trace-flow trace-accent" d="M 140,100 L 190,100" />
+    <path class="trace-flow trace-success" d="M 100,10 L 100,60" />
+    <path class="trace-flow trace-warning" d="M 100,140 L 100,190" />
+    <path class="trace-flow trace-primary" d="M 30,30 L 65,65" style="animation-delay: 0.3s;" />
+    <path class="trace-flow trace-accent" d="M 135,135 L 170,170" style="animation-delay: 0.6s;" />
+    <path class="trace-flow trace-success" d="M 30,170 L 65,135" style="animation-delay: 0.9s;" />
+    <path class="trace-flow trace-warning" d="M 135,65 L 170,30" style="animation-delay: 1.2s;" />
+
+    <!-- Connection pins -->
+    <circle class="chip-pin" cx="10" cy="100" r="3" />
+    <circle class="chip-pin" cx="190" cy="100" r="3" />
+    <circle class="chip-pin" cx="100" cy="10" r="3" />
+    <circle class="chip-pin" cx="100" cy="190" r="3" />
+    <circle class="chip-pin" cx="30" cy="30" r="3" />
+    <circle class="chip-pin" cx="170" cy="170" r="3" />
+    <circle class="chip-pin" cx="30" cy="170" r="3" />
+    <circle class="chip-pin" cx="170" cy="30" r="3" />
+
+    <!-- Central chip body -->
+    <rect class="chip-body" x="60" y="60" width="80" height="80" rx="12" ry="12" />
+
+    <!-- Chip details -->
+    <line class="chip-detail" x1="70" y1="75" x2="130" y2="75" />
+    <line class="chip-detail" x1="70" y1="85" x2="130" y2="85" />
+    <line class="chip-detail" x1="70" y1="95" x2="130" y2="95" />
+    <line class="chip-detail" x1="70" y1="115" x2="130" y2="115" />
+    <line class="chip-detail" x1="70" y1="125" x2="130" y2="125" />
+
+    <!-- Center indicator -->
+    <circle class="chip-center" cx="100" cy="100" r="8" />
+    <circle class="chip-pulse" cx="100" cy="100" r="8" />
+
+    <!-- Text label -->
+    <text class="chip-text" x="100" y="107" text-anchor="middle">VOLTRY</text>
+  </svg>
+
+  <!-- Labels for data sources -->
+  <div class="circuit-labels">
+    <div class="label label-top">THD</div>
+    <div class="label label-right">Voltage</div>
+    <div class="label label-bottom">Frequency</div>
+    <div class="label label-left">Power Factor</div>
+  </div>
+</div>
+
+<style>
+  .circuit-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: var(--space-8);
+  }
+
+  .circuit-loader {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Background traces (dim paths) */
+  .trace-bg {
+    stroke: var(--border-subtle);
+    stroke-width: 1.8;
+    fill: none;
+    opacity: 0.3;
+  }
+
+  /* Animated flowing traces */
+  .trace-flow {
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 40 400;
+    stroke-dashoffset: 438;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px currentColor);
+    animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+  }
+
+  /* Color variations matching Voltry brand */
+  .trace-primary {
+    stroke: var(--color-primary-500);
+    color: var(--color-primary-500);
+  }
+
+  .trace-accent {
+    stroke: var(--color-accent-500);
+    color: var(--color-accent-500);
+  }
+
+  .trace-success {
+    stroke: var(--color-success);
+    color: var(--color-success);
+  }
+
+  .trace-warning {
+    stroke: #fbbf24;
+    color: #fbbf24;
+  }
+
+  @keyframes flow {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Central chip body */
+  .chip-body {
+    fill: var(--bg-elevated);
+    stroke: var(--border-default);
+    stroke-width: 2;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: all var(--transition-base);
+  }
+
+  .circuit-container:hover .chip-body {
+    fill: var(--bg-secondary);
+    stroke: var(--color-primary-500);
+    filter: drop-shadow(0 8px 24px rgba(147, 51, 234, 0.4));
+  }
+
+  /* Chip internal details */
+  .chip-detail {
+    stroke: var(--border-subtle);
+    stroke-width: 1;
+    opacity: 0.5;
+  }
+
+  /* Center indicator */
+  .chip-center {
+    fill: var(--color-primary-500);
+    filter: drop-shadow(0 0 8px var(--color-primary-500));
+  }
+
+  .chip-pulse {
+    fill: var(--color-primary-500);
+    opacity: 0.6;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      r: 8;
+      opacity: 0.6;
+    }
+    50% {
+      r: 12;
+      opacity: 0;
+    }
+  }
+
+  /* Text inside chip */
+  .chip-text {
+    fill: var(--text-primary);
+    font-size: 8px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 1px;
+    font-family: var(--font-mono, monospace);
+  }
+
+  /* Connection pins */
+  .chip-pin {
+    fill: var(--bg-tertiary);
+    stroke: var(--border-default);
+    stroke-width: 0.5;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+    transition: all var(--transition-fast);
+  }
+
+  .circuit-container:hover .chip-pin {
+    fill: var(--color-primary-500);
+    stroke: var(--color-primary-600);
+  }
+
+  /* Labels around the circuit */
+  .circuit-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .label {
+    position: absolute;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-secondary);
+    padding: var(--space-1) var(--space-2);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .circuit-container:hover .label {
+    color: var(--text-primary);
+    border-color: var(--color-primary-500);
+    background: var(--bg-secondary);
+  }
+
+  .label-top {
+    top: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .label-right {
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .label-bottom {
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .label-left {
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Dark mode adjustments */
+  [data-theme="dark"] .chip-body {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  }
+
+  [data-theme="dark"] .circuit-container:hover .chip-body {
+    filter: drop-shadow(0 8px 24px rgba(147, 51, 234, 0.6));
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .circuit-container {
+      max-width: 300px;
+      padding: var(--space-6);
+    }
+
+    .chip-text {
+      font-size: 7px;
+    }
+
+    .label {
+      font-size: var(--text-2xs);
+      padding: var(--space-0-5) var(--space-1);
+    }
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .trace-flow {
+      animation: none;
+      stroke-dashoffset: 0;
+      opacity: 0.8;
+    }
+
+    .chip-pulse {
+      animation: none;
+      opacity: 0.3;
+    }
+  }
+</style>
