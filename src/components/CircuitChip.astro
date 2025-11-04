@@ -45,12 +45,18 @@
     <line class="chip-detail" x1="70" y1="115" x2="130" y2="115" />
     <line class="chip-detail" x1="70" y1="125" x2="130" y2="125" />
 
-    <!-- Center indicator -->
-    <circle class="chip-center" cx="100" cy="100" r="8" />
-    <circle class="chip-pulse" cx="100" cy="100" r="8" />
+    <!-- Center indicator with pulsing effect -->
+    <circle class="chip-pulse" cx="100" cy="100" r="12" />
 
-    <!-- Text label -->
-    <text class="chip-text" x="100" y="107" text-anchor="middle">VOLTRY</text>
+    <!-- Voltry brand icon -->
+    <image
+      class="chip-icon"
+      href="https://res.cloudinary.com/di54rmpjf/image/upload/v1760107457/voltry-icon-full_lqlaqh.png"
+      x="75"
+      y="75"
+      width="50"
+      height="50"
+    />
   </svg>
 
   <!-- Labels for data sources -->
@@ -145,36 +151,34 @@
     opacity: 0.5;
   }
 
-  /* Center indicator */
-  .chip-center {
-    fill: var(--color-primary-500);
-    filter: drop-shadow(0 0 8px var(--color-primary-500));
-  }
-
+  /* Pulsing background effect behind icon */
   .chip-pulse {
     fill: var(--color-primary-500);
-    opacity: 0.6;
+    opacity: 0.4;
     animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes pulse {
     0%, 100% {
-      r: 8;
-      opacity: 0.6;
+      r: 12;
+      opacity: 0.4;
     }
     50% {
-      r: 12;
+      r: 18;
       opacity: 0;
     }
   }
 
-  /* Text inside chip */
-  .chip-text {
-    fill: var(--text-primary);
-    font-size: 8px;
-    font-weight: var(--weight-bold);
-    letter-spacing: 1px;
-    font-family: var(--font-mono, monospace);
+  /* Voltry brand icon in center */
+  .chip-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all var(--transition-base);
+  }
+
+  .circuit-container:hover .chip-icon {
+    filter: drop-shadow(0 4px 12px rgba(147, 51, 234, 0.6));
+    transform: scale(1.05);
+    transform-origin: center;
   }
 
   /* Connection pins */
