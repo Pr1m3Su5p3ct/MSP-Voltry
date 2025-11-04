@@ -5,44 +5,61 @@ Modern, responsive website for Voltry - AI-powered power quality monitoring and 
 ## Features
 
 - **Modern Stack**: Built with Astro 5.2, the latest web framework
-- **Design System**: Custom CSS with elevation layers, modern grays, and sophisticated color palette
+- **CMS-Powered**: Decap CMS for easy content management (no coding required)
+- **Design System**: Golden ratio spacing, custom CSS with elevation layers and sophisticated color palette
 - **Light/Dark Mode**: Automatic theme switching based on user preference
+- **Vertical Hero Slider**: Auto-scrolling image carousel with smooth animations
 - **Responsive**: Mobile-first design that works on all devices
 - **Performance**: Static-first with minimal JavaScript
 - **SEO Optimized**: Semantic HTML with proper meta tags
 - **Accessible**: WCAG compliant with proper ARIA labels
+- **Form Integration**: Netlify Forms with Google Sheets integration via Zapier
 
 ## Tech Stack
 
 - **Framework**: [Astro 5.2](https://astro.build/)
-- **Styling**: Modern CSS with custom properties
-- **Deployment**: Netlify
-- **Forms**: Netlify Forms for contact form handling
-- **Images**: Unsplash for placeholder images
+- **CMS**: [Decap CMS](https://decapcms.org/) (formerly Netlify CMS)
+- **Styling**: Modern CSS with custom properties and golden ratio design system
+- **Deployment**: [Netlify](https://netlify.com)
+- **Forms**: Netlify Forms + Zapier → Google Sheets
+- **Images**: Cloudinary CDN for branding, Unsplash for placeholder images
+- **TypeScript**: Full type safety with Astro's content collections
 
 ## Project Structure
 
 ```
 /
-├── public/              # Static assets
+├── docs/                    # 📚 Documentation
+│   ├── CMS_SETUP.md        # Decap CMS setup guide
+│   ├── CMS_WORKFLOW.md     # Editorial workflow & deploy previews
+│   └── FORM_INTEGRATION.md # Google Sheets form integration guide
+├── public/                  # Static assets
+│   ├── admin/              # Decap CMS admin interface
 │   └── favicon.svg
 ├── src/
-│   ├── components/      # Reusable components
+│   ├── components/         # Reusable UI components
 │   │   ├── Header.astro
 │   │   ├── Footer.astro
 │   │   ├── Button.astro
-│   │   └── Card.astro
-│   ├── layouts/         # Page layouts
+│   │   ├── Card.astro
+│   │   └── VerticalSlider.astro
+│   ├── content/            # CMS-managed content
+│   │   ├── config.ts       # Content collection schemas
+│   │   ├── global/         # Site-wide settings (nav, footer)
+│   │   ├── pages/          # Page content (JSON)
+│   │   └── testimonials/   # Customer testimonials (Markdown)
+│   ├── layouts/            # Page layouts
 │   │   └── BaseLayout.astro
-│   ├── pages/           # File-based routing
+│   ├── pages/              # File-based routing
 │   │   ├── index.astro
 │   │   ├── product-0.astro
 │   │   ├── product-1.astro
 │   │   └── contact.astro
-│   └── styles/          # Global styles
+│   └── styles/             # Global styles
 │       └── global.css
-├── astro.config.mjs     # Astro configuration
-├── netlify.toml         # Netlify deployment config
+├── astro.config.mjs        # Astro configuration
+├── netlify.toml            # Netlify deployment config
+├── tsconfig.json           # TypeScript configuration
 └── package.json
 ```
 
@@ -132,7 +149,17 @@ The site is configured for deployment on Netlify:
 3. Publish directory: `dist`
 4. Environment: Node.js 20
 
-Forms are automatically handled by Netlify Forms - no backend required!
+### CMS Access
+
+After deployment, access the CMS at: `https://your-site.netlify.app/admin/`
+
+See `docs/CMS_SETUP.md` for authentication setup.
+
+### Form Integration
+
+Forms are handled by Netlify Forms and can be integrated with Google Sheets via Zapier.
+
+See `docs/FORM_INTEGRATION.md` for complete setup instructions.
 
 ## Development
 
