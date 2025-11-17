@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Voltry"
+  description="The page you're looking for doesn't exist. Return to Voltry's homepage."
+>
+  <Header />
+
+  <main id="main-content">
+    <section class="error-section">
+      <div class="container">
+        <div class="error-content">
+          <div class="error-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+
+          <h1 class="error-code">404</h1>
+          <h2 class="error-title">Power Outage</h2>
+          <p class="error-message">
+            Looks like we've lost connection to this page.
+            Don't worry, our monitoring systems are tracking the issue.
+          </p>
+
+          <div class="error-actions">
+            <Button href="/" variant="primary" size="lg">
+              Return to Homepage
+            </Button>
+            <Button href="/contact" variant="outline" size="lg">
+              Contact Support
+            </Button>
+          </div>
+
+          <div class="helpful-links">
+            <h3>Try these instead:</h3>
+            <ul>
+              <li><a href="/product-0">Product 0 - Free Monitoring</a></li>
+              <li><a href="/product-1">Product 1 - AI Forecasting</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .error-section {
+    min-height: calc(100vh - 10rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .error-content {
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .error-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-8);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .error-icon svg {
+    width: 60px;
+    height: 60px;
+    color: white;
+  }
+
+  .error-code {
+    font-size: clamp(80px, 15vw, 160px);
+    font-weight: var(--weight-extrabold);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-4);
+  }
+
+  .error-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .error-message {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-10);
+  }
+
+  .error-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+  }
+
+  .helpful-links {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .helpful-links h3 {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .helpful-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .helpful-links a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+    font-weight: var(--weight-medium);
+    transition: color var(--transition-fast);
+    padding: var(--space-2);
+  }
+
+  .helpful-links a:hover {
+    color: var(--color-accent-500);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .error-icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .error-icon svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    .error-title {
+      font-size: var(--text-2xl);
+    }
+
+    .error-message {
+      font-size: var(--text-base);
+    }
+
+    .helpful-links ul {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+</style>
