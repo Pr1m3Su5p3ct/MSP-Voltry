@@ -6,6 +6,7 @@ import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import VerticalSlider from '../components/VerticalSlider.astro';
 import CircuitChip from '../components/CircuitChip.astro';
+import PricingCard from '../components/PricingCard.astro';
 import { getCollection } from 'astro:content';
 
 // Import page content from CMS
@@ -132,33 +133,19 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
 
         <div class="pricing-grid">
           {pricing.tiers.map((tier) => (
-            <Card variant="elevated" class={`pricing-card ${tier.featured ? 'featured' : ''}`}>
-              <div class={`pricing-badge ${tier.badgeType}`}>{tier.badge}</div>
-              <h3 class="pricing-name">{tier.name}</h3>
-              <div class="pricing-price">
-                <span class="price-amount">{tier.price}</span>
-                {tier.period && <span class="price-period">{tier.period}</span>}
-              </div>
-              <p class="pricing-description">{tier.description}</p>
-              <ul class="pricing-features">
-                {tier.features.map((feature) => (
-                  <li>
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                variant={tier.buttonVariant as any}
-                size="lg"
-                href={tier.buttonLink}
-                class="pricing-cta"
-              >
-                {tier.buttonText}
-              </Button>
-            </Card>
+            <PricingCard
+              name={tier.name}
+              price={tier.price}
+              period={tier.period}
+              description={tier.description}
+              features={tier.features.map(f => ({ title: f }))}
+              badge={tier.badge}
+              badgeType={tier.badgeType as 'free' | 'primary' | 'default'}
+              buttonText={tier.buttonText}
+              buttonLink={tier.buttonLink}
+              featured={tier.featured}
+              guarantee={tier.featured ? "30-day money-back guarantee" : ""}
+            />
           ))}
         </div>
       </div>
@@ -639,119 +626,29 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
   /* Pricing Section */
   .pricing-section {
     padding: var(--space-20) 0;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02), transparent);
   }
 
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+    gap: var(--space-10);
     align-items: stretch;
+    justify-items: center;
   }
 
-  .pricing-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-    padding: var(--space-8);
-    position: relative;
-    transition: all var(--transition-base);
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
   }
 
-  .pricing-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--elevation-4), var(--glow-soft);
-  }
-
-  .pricing-card.featured {
-    border: 2px solid var(--color-primary-500);
-    box-shadow: var(--elevation-3), var(--glow-primary);
-  }
-
-  .pricing-card.featured:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--elevation-5), var(--glow-primary);
-  }
-
-  .pricing-badge {
-    display: inline-block;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: var(--color-gray-200);
-    color: var(--color-gray-700);
-    width: fit-content;
-  }
-
-  .pricing-badge.free {
-    background: linear-gradient(135deg, var(--color-accent-100), var(--color-accent-200));
-    color: var(--color-accent-900);
-  }
-
-  .pricing-badge.primary {
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-    color: white;
-  }
-
-  .pricing-name {
-    font-size: var(--text-2xl);
-    font-weight: var(--weight-bold);
-    color: var(--text-primary);
-  }
-
-  .pricing-price {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-2);
-  }
-
-  .price-amount {
-    font-size: var(--text-5xl);
-    font-weight: var(--weight-bold);
-    color: var(--text-primary);
-  }
-
-  .price-period {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-  }
-
-  .pricing-description {
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .pricing-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    flex: 1;
-  }
-
-  .pricing-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-  }
-
-  .pricing-features svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: var(--color-success);
-    margin-top: 2px;
-  }
-
-  .pricing-cta {
-    width: 100%;
-    margin-top: var(--space-4);
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
   }
 
   /* Testimonials */
