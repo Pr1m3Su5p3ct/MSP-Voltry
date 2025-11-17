@@ -1,0 +1,154 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  image?: string;
+  class?: string;
+}
+
+const { title, description, icon, image, class: className = '' } = Astro.props;
+---
+
+<div class={`flip-card ${className}`}>
+  <div class="flip-card__front">
+    {image ? (
+      <img src={image} alt={title} class="flip-card__image" />
+    ) : icon ? (
+      <div class="flip-card__icon">{icon}</div>
+    ) : (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    )}
+  </div>
+  <div class="flip-card__content">
+    <h3 class="flip-card__title">{title}</h3>
+    <p class="flip-card__description">{description}</p>
+  </div>
+</div>
+
+<style>
+  .flip-card {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px var(--border-subtle);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .flip-card svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-primary-600);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  [data-theme="dark"] .flip-card svg {
+    color: var(--color-primary-400);
+  }
+
+  .flip-card__icon {
+    font-size: 4rem;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .flip-card__image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .flip-card:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.1),
+      var(--glow-soft);
+  }
+
+  [data-theme="dark"] .flip-card:hover {
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      var(--glow-soft);
+  }
+
+  .flip-card__front {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .flip-card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-6);
+    box-sizing: border-box;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .flip-card:hover .flip-card__content {
+    transform: rotateX(0deg);
+  }
+
+  .flip-card:hover .flip-card__front svg,
+  .flip-card:hover .flip-card__icon,
+  .flip-card:hover .flip-card__image {
+    scale: 0;
+    opacity: 0;
+  }
+
+  .flip-card__title {
+    margin: 0;
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    font-weight: var(--weight-bold);
+    line-height: var(--line-tight);
+  }
+
+  .flip-card__description {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .flip-card {
+      height: 240px;
+    }
+
+    .flip-card__content {
+      padding: var(--space-5);
+    }
+
+    .flip-card__title {
+      font-size: var(--text-lg);
+    }
+  }
+</style>
