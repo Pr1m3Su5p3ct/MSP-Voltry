@@ -208,6 +208,19 @@ const { hero, features, roi } = product0Data;
     display: flex;
     gap: var(--space-4);
     margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero-cta {
+      width: 100%;
+    }
+
+    .hero-cta :global(a),
+    .hero-cta :global(button) {
+      flex: 1;
+      min-width: 100%;
+    }
   }
 
   .hero-trust {
@@ -216,12 +229,27 @@ const { hero, features, roi } = product0Data;
     gap: var(--space-4);
     font-size: var(--text-sm);
     color: var(--text-secondary);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-trust svg {
     width: 20px;
     height: 20px;
     color: var(--color-success);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-trust {
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+    }
+
+    .hero-trust svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   /* Features Section */
@@ -439,6 +467,7 @@ const { hero, features, roi } = product0Data;
   @media (max-width: 1024px) {
     .features-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
     }
 
     .roi-content {
@@ -451,6 +480,7 @@ const { hero, features, roi } = product0Data;
 
     .upgrade-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-6);
     }
 
     .upgrade-card.featured {
@@ -459,8 +489,24 @@ const { hero, features, roi } = product0Data;
   }
 
   @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
     .features-grid {
       grid-template-columns: 1fr;
+    }
+
+    .features-section {
+      padding: var(--space-12) 0;
+    }
+
+    .roi-section {
+      padding: var(--space-12) 0;
+    }
+
+    .upgrade-section {
+      padding: var(--space-12) 0;
     }
 
     .hero-title {
@@ -476,8 +522,20 @@ const { hero, features, roi } = product0Data;
       width: 100%;
     }
 
+    .section-header {
+      margin-bottom: var(--space-8);
+    }
+
     .section-header h2 {
       font-size: var(--text-3xl);
+    }
+
+    .section-header p {
+      font-size: var(--text-base);
+    }
+
+    .roi-title {
+      font-size: var(--text-2xl);
     }
   }
 </style>

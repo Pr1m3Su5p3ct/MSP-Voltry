@@ -641,6 +641,49 @@ a:hover {
   h3 {
     font-size: var(--text-2xl);
   }
+
+  h4 {
+    font-size: var(--text-xl);
+  }
+
+  h5 {
+    font-size: var(--text-lg);
+  }
+}
+
+/* === RESPONSIVE UTILITIES === */
+/* Full width on mobile */
+@media (max-width: 768px) {
+  .mobile-full-width {
+    width: 100% !important;
+  }
+
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide on tablet and up */
+@media (min-width: 769px) {
+  .hide-tablet-up {
+    display: none !important;
+  }
+}
+
+/* Text alignment utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+@media (max-width: 768px) {
+  .mobile-text-center { text-align: center; }
 }
 
 /* === SELECTION === */
