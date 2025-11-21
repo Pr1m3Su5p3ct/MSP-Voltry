@@ -275,6 +275,19 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     display: flex;
     gap: var(--space-4);
     margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero-cta {
+      width: 100%;
+    }
+
+    .hero-cta :global(a),
+    .hero-cta :global(button) {
+      flex: 1;
+      min-width: 100%;
+    }
   }
 
   .hero-trust {
@@ -283,12 +296,27 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     gap: var(--space-4);
     font-size: var(--text-sm);
     color: var(--text-secondary);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-trust svg {
     width: 20px;
     height: 20px;
     color: var(--color-success);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-trust {
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+    }
+
+    .hero-trust svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .hero-visual {
@@ -302,6 +330,26 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     box-shadow: var(--elevation-4);
     aspect-ratio: 4 / 3;
     height: 500px;
+    max-width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-slider-container {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-slider-container {
+      height: 300px;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-slider-container {
+      height: 250px;
+    }
   }
 
   /* PSP Section */
@@ -489,6 +537,12 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     50% {
       opacity: 0.6;
       transform: translateY(-50%) translateX(5px);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .psp-arrow {
+      display: none;
     }
   }
 
@@ -835,6 +889,19 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     gap: var(--space-8);
   }
 
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      gap: var(--space-4);
+    }
+  }
+
   .stat {
     text-align: center;
   }
@@ -892,10 +959,19 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
       order: -1;
     }
 
-    .psp-grid,
-    .features-grid,
+    .psp-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+
     .pricing-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-6);
     }
 
     .single-pane-visual {
@@ -907,13 +983,13 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     .pricing-card.featured {
       transform: scale(1);
     }
-
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
     .hero-title {
       font-size: var(--text-4xl);
     }
@@ -928,10 +1004,43 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
 
     .hero-trust {
       flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .psp-section {
+      padding: var(--space-12) 0;
+    }
+
+    .features-section {
+      padding: var(--space-12) 0;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-section {
+      padding: var(--space-12) 0;
+    }
+
+    .stats-section {
+      padding: var(--space-12) 0;
+    }
+
+    .final-cta {
+      padding: var(--space-12) 0;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
     }
 
     .section-header h2 {
       font-size: var(--text-3xl);
+    }
+
+    .section-header p {
+      font-size: var(--text-base);
     }
 
     .testimonial-quote {
@@ -940,6 +1049,10 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
 
     .cta-title {
       font-size: var(--text-3xl);
+    }
+
+    .cta-description {
+      font-size: var(--text-lg);
     }
   }
 </style>

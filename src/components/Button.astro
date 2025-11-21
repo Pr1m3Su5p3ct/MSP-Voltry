@@ -44,6 +44,14 @@ const additionalProps = href ? { href } : { type };
     overflow: hidden;
   }
 
+  /* Full width variant for mobile */
+  @media (max-width: 768px) {
+    .btn {
+      white-space: normal;
+      text-align: center;
+    }
+  }
+
   .btn::before {
     content: '';
     position: absolute;

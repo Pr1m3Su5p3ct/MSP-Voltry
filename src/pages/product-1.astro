@@ -384,6 +384,19 @@ import Card from '../components/Card.astro';
     display: flex;
     gap: var(--space-4);
     margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero-cta {
+      width: 100%;
+    }
+
+    .hero-cta :global(a),
+    .hero-cta :global(button) {
+      flex: 1;
+      min-width: 100%;
+    }
   }
 
   .hero-trust {
@@ -392,12 +405,27 @@ import Card from '../components/Card.astro';
     gap: var(--space-4);
     font-size: var(--text-sm);
     color: var(--text-secondary);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-trust svg {
     width: 20px;
     height: 20px;
     color: var(--color-success);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-trust {
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+    }
+
+    .hero-trust svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   /* Features Section */
@@ -770,6 +798,7 @@ import Card from '../components/Card.astro';
   @media (max-width: 1024px) {
     .comparison-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-6);
     }
 
     .comparison-card.featured {
@@ -790,6 +819,26 @@ import Card from '../components/Card.astro';
   }
 
   @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .features-section {
+      padding: var(--space-12) 0;
+    }
+
+    .federation-section {
+      padding: var(--space-12) 0;
+    }
+
+    .comparison-section {
+      padding: var(--space-12) 0;
+    }
+
+    .demo-section {
+      padding: var(--space-12) 0;
+    }
+
     .hero-title {
       font-size: var(--text-4xl);
     }
@@ -798,31 +847,75 @@ import Card from '../components/Card.astro';
       font-size: var(--text-lg);
     }
 
+    .hero-price {
+      font-size: var(--text-3xl);
+    }
+
     .hero-cta {
       flex-direction: column;
       width: 100%;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
     }
 
     .section-header h2 {
       font-size: var(--text-3xl);
     }
 
+    .section-header p {
+      font-size: var(--text-base);
+    }
+
     .feature-header {
       flex-direction: column;
       align-items: flex-start;
+      gap: var(--space-3);
     }
 
     .feature-header-text {
       flex-direction: column;
       align-items: flex-start;
+      gap: var(--space-2);
+      width: 100%;
+    }
+
+    .feature-title {
+      font-size: var(--text-xl);
+    }
+
+    .feature-description {
+      font-size: var(--text-base);
+    }
+
+    .federation-title {
+      font-size: var(--text-2xl);
     }
 
     .federation-diagram {
       flex-direction: column;
+      gap: var(--space-4);
     }
 
     .federation-arrow {
       transform: rotate(90deg);
+    }
+
+    .demo-title {
+      font-size: var(--text-2xl);
+    }
+
+    .comparison-savings {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-pricing {
+      flex-direction: column;
+      gap: 0;
+      align-items: center;
     }
   }
 </style>
