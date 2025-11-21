@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "FREE FOREVER",
-    "title": "Product 0: Real-Time Power Quality",
+    "title": "VoltryOS: Real-Time Power Quality",
     "highlightedText": "Monitoring",
     "subtitle": "Monitor THD, voltage, and compliance in real-time. Completely free, forever.",
     "primaryCTA": "Start Free Monitoring",
@@ -95,7 +95,7 @@
     "stat1Label": "Average savings per year",
     "stat2Value": "3-6 months",
     "stat2Label": "Typical payback period",
-    "description": "Product 0 helps you avoid costly downtime, equipment failures, and compliance penalties - all at zero cost.",
+    "description": "VoltryOS helps you avoid costly downtime, equipment failures, and compliance penalties - all at zero cost.",
     "buttonText": "Start Free Monitoring"
   }
 }

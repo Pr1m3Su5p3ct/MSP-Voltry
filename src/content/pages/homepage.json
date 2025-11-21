@@ -88,7 +88,7 @@
         "period": "/month",
         "badge": "FREE FOREVER",
         "price": "$0",
-        "name": "Product 0",
+        "name": "VoltryOS",
         "buttonLink": "/product-0",
         "featured": false,
         "buttonVariant": "outline",
@@ -106,13 +106,13 @@
         "period": "/month",
         "badge": "MOST POPULAR",
         "price": "$499",
-        "name": "Product 1",
+        "name": "Predict",
         "buttonLink": "/product-1",
         "featured": true,
         "buttonVariant": "primary",
-        "description": "Everything in Product 0, plus AI forecasting",
+        "description": "Everything in VoltryOS, plus AI forecasting",
         "features": [
-          "Everything in Product 0",
+          "Everything in VoltryOS",
           "24-72h forecasts",
           "Failure prediction",
           "Federated learning"
@@ -130,7 +130,7 @@
         "buttonVariant": "outline",
         "description": "Tailored solutions for large deployments",
         "features": [
-          "Everything in Product 1",
+          "Everything in Predict",
           "Dedicated support",
           "On-premise deployment",
           "Custom SLA"

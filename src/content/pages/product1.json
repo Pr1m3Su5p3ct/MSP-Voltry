@@ -1,15 +1,15 @@
 {
   "hero": {
     "badge": "AI-POWERED PREDICTIONS",
-    "title": "Product 1: Predict Issues",
-    "highlightedText": "Before They Happen",
+    "title": "Predict: AI-Powered Forecasting",
+    "highlightedText": "Before Issues Happen",
     "subtitle": "AI forecasts power quality issues 24-72 hours ahead with 95% accuracy",
     "price": "$499",
     "period": "/month",
     "primaryCTA": "Request Demo",
     "secondaryCTA": "See How It Works",
     "trust1": "95% accuracy",
-    "trust2": "Includes P0",
+    "trust2": "Includes VoltryOS",
     "trust3": "Federated learning"
   },
   "features": {
@@ -73,7 +73,7 @@
   },
   "comparison": {
     "title": "Product Comparison",
-    "subtitle": "See what you get with Product 1",
+    "subtitle": "See what you get with Predict",
     "p0Savings": "$50K saved",
     "p0Features": [
       "Real-time monitoring",
@@ -84,16 +84,16 @@
     "p1Badge": "RECOMMENDED",
     "p1Savings": "$280K saved",
     "p1Features": [
-      "Everything in Product 0",
+      "Everything in VoltryOS",
       "24-72h forecasts",
       "Failure prediction",
       "Federated learning"
     ],
     "p1Price": "$499/mo",
-    "note": "ROI in 3-6 months: Product 1 pays for itself by preventing just one critical failure per year. The average cost of unplanned downtime is $5,600 per minute for data centers."
+    "note": "ROI in 3-6 months: Predict pays for itself by preventing just one critical failure per year. The average cost of unplanned downtime is $5,600 per minute for data centers."
   },
   "demo": {
-    "title": "See Product 1 in Action",
+    "title": "See Predict in Action",
     "description": "Watch how our AI predicts a critical power quality event 48 hours before it occurs, giving your team time to take preventive action.",
     "buttonText": "Request a Live Demo",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80"
