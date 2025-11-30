@@ -1,10 +1,9 @@
 {
   "hero": {
-    "title": "Predict Power Quality Issues",
     "highlightedText": "Before They Happen",
-    "subtitle": "AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities",
     "primaryCTA": "Start Free Pilot",
-    "secondaryCTA": "See How It Works",
+    "subtitle": "AI-powered monitoring and forecasting prevents costly downtime in data centers and mission-critical facilities",
+    "title": "Predict Power Quality Issues",
     "trust1": "No credit card",
     "trust2": "5-min setup",
     "trust3": "Free forever",
@@ -21,7 +20,8 @@
         "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
         "alt": "Real-time power quality monitoring dashboard"
       }
-    ]
+    ],
+    "secondaryCTA": "See How It Works"
   },
   "pspCards": [
     {
@@ -103,9 +103,9 @@
         "buttonText": "Learn More"
       },
       {
-        "period": "/month",
+        "period": "/yearly",
         "badge": "MOST POPULAR",
-        "price": "$499",
+        "price": "$12,000",
         "name": "Predict",
         "buttonLink": "/product-1",
         "featured": true,
