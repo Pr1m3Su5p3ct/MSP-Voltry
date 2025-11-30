@@ -6,16 +6,8 @@ import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import VerticalSlider from '../components/VerticalSlider.astro';
 import CircuitChip from '../components/CircuitChip.astro';
-import { getCollection } from 'astro:content';
-
 // Import page content from CMS
 import homepageData from '../content/pages/homepage.json';
-
-// Get testimonials from CMS
-const testimonials = await getCollection('testimonials');
-const featuredTestimonial = testimonials
-  .filter(t => t.data.featured)
-  .sort((a, b) => a.data.order - b.data.order)[0];
 
 const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homepageData;
 ---
@@ -163,36 +155,6 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
         </div>
       </div>
     </section>
-
-    <!-- Testimonials -->
-    {featuredTestimonial && (
-      <section class="testimonials-section">
-        <div class="container">
-          <div class="testimonial-card">
-            <Card variant="elevated" padding="lg">
-              <div class="testimonial-content">
-                <div class="quote-icon">"</div>
-                <blockquote class="testimonial-quote">
-                  {featuredTestimonial.data.quote}
-                </blockquote>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <div class="author-name">{featuredTestimonial.data.author}</div>
-                    <div class="author-title">{featuredTestimonial.data.title}, {featuredTestimonial.data.company}</div>
-                  </div>
-                </div>
-                {featuredTestimonial.data.metric && (
-                  <div class="testimonial-metric">
-                    <span class="metric-value">{featuredTestimonial.data.metric}</span>
-                    <span class="metric-label">{featuredTestimonial.data.metricLabel}</span>
-                  </div>
-                )}
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-    )}
 
     <!-- Social Proof Stats -->
     <section class="stats-section">
@@ -808,76 +770,6 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
     margin-top: var(--space-4);
   }
 
-  /* Testimonials */
-  .testimonials-section {
-    padding: var(--space-20) 0;
-    background-color: var(--bg-secondary);
-  }
-
-  .testimonial-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    text-align: center;
-    position: relative;
-  }
-
-  .quote-icon {
-    font-size: 4rem;
-    line-height: 1;
-    color: var(--color-primary-200);
-    font-family: Georgia, serif;
-  }
-
-  .testimonial-quote {
-    font-size: var(--text-2xl);
-    line-height: var(--line-relaxed);
-    color: var(--text-primary);
-    font-style: italic;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-4);
-  }
-
-  .author-name {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-    color: var(--text-primary);
-  }
-
-  .author-title {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-  }
-
-  .testimonial-metric {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    background-color: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-  }
-
-  .metric-value {
-    font-size: var(--text-4xl);
-    font-weight: var(--weight-bold);
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .metric-label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-  }
-
   /* Stats Section */
   .stats-section {
     padding: var(--space-16) 0;
@@ -1041,10 +933,6 @@ const { hero, pspCards, singlePane, features, pricing, stats, finalCTA } = homep
 
     .section-header p {
       font-size: var(--text-base);
-    }
-
-    .testimonial-quote {
-      font-size: var(--text-lg);
     }
 
     .cta-title {
